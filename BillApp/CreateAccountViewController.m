@@ -1,18 +1,18 @@
 //
-//  CameraViewController.m
+//  CreateAccountViewController.m
 //  BillApp
 //
-//  Created by X Code User on 9/29/14.
+//  Created by X Code User on 10/3/14.
 //  Copyright (c) 2014 Team4. All rights reserved.
 //
 
-#import "CameraViewController.h"
+#import "CreateAccountViewController.h"
 
-@interface CameraViewController ()
+@interface CreateAccountViewController ()
 
 @end
 
-@implementation CameraViewController
+@implementation CreateAccountViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

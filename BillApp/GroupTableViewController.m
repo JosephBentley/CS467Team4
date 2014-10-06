@@ -28,8 +28,6 @@
 {
     [super viewDidLoad];
     
-    AccountViewController* account= [[AccountViewController alloc] init];
-    if(![account enableReport])
     self.navigationItem.rightBarButtonItem.enabled = NO;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

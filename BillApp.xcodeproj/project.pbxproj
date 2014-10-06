@@ -40,7 +40,10 @@
 		3385296F19CA1BB70074D140 /* BillAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3385296E19CA1BB70074D140 /* BillAppTests.m */; };
 		338C630219D9E34F003D113C /* ReceiptTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338C630119D9E34F003D113C /* ReceiptTableViewController.m */; };
 		338C630519D9E369003D113C /* BarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338C630419D9E369003D113C /* BarcodeViewController.m */; };
+		338E737819DEDCD500DF6D78 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E737719DEDCD500DF6D78 /* LoginViewController.m */; };
+		338E737B19DEDCE300DF6D78 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E737A19DEDCE300DF6D78 /* CreateAccountViewController.m */; };
 		339A503019D30C4A00FE1513 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339A502F19D30C4A00FE1513 /* Storyboard.storyboard */; };
+		33F3C1FD19E3061600729A72 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3C1FC19E3061600729A72 /* MenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +113,13 @@
 		338C630119D9E34F003D113C /* ReceiptTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptTableViewController.m; sourceTree = "<group>"; };
 		338C630319D9E369003D113C /* BarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarcodeViewController.h; sourceTree = "<group>"; };
 		338C630419D9E369003D113C /* BarcodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarcodeViewController.m; sourceTree = "<group>"; };
+		338E737619DEDCD500DF6D78 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		338E737719DEDCD500DF6D78 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		338E737919DEDCE300DF6D78 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
+		338E737A19DEDCE300DF6D78 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
 		339A502F19D30C4A00FE1513 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		33F3C1FB19E3061600729A72 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		33F3C1FC19E3061600729A72 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +190,12 @@
 				331DE83719D0937100B1E828 /* CalendarTableViewController.h */,
 				331DE83819D0937100B1E828 /* CalendarTableViewController.m */,
 				339A502F19D30C4A00FE1513 /* Storyboard.storyboard */,
+				33F3C1FB19E3061600729A72 /* MenuViewController.h */,
+				33F3C1FC19E3061600729A72 /* MenuViewController.m */,
+				338E737919DEDCE300DF6D78 /* CreateAccountViewController.h */,
+				338E737A19DEDCE300DF6D78 /* CreateAccountViewController.m */,
+				338E737619DEDCD500DF6D78 /* LoginViewController.h */,
+				338E737719DEDCD500DF6D78 /* LoginViewController.m */,
 				338C630319D9E369003D113C /* BarcodeViewController.h */,
 				338C630419D9E369003D113C /* BarcodeViewController.m */,
 				338C630019D9E34F003D113C /* ReceiptTableViewController.h */,
@@ -366,7 +381,10 @@
 				33509FD119D9A42A006BECBF /* PendingTableView.m in Sources */,
 				33509FB619D9A285006BECBF /* DashboardTableView.m in Sources */,
 				33509FDA19D9A46F006BECBF /* PhotoViewController.m in Sources */,
+				33F3C1FD19E3061600729A72 /* MenuViewController.m in Sources */,
 				33509FCB19D9A3E4006BECBF /* ShoppingListTableViewController.m in Sources */,
+				338E737B19DEDCE300DF6D78 /* CreateAccountViewController.m in Sources */,
+				338E737819DEDCD500DF6D78 /* LoginViewController.m in Sources */,
 				33509FB319D9A24A006BECBF /* DashboardTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

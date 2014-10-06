@@ -17,5 +17,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *groupName;
 - (IBAction)addGroup:(id)sender;
 - (IBAction)saveButton:(id)sender;
--(bool)enableReport;
+@property (strong, nonatomic) NSString *enableReport;
 @end

@@ -34,17 +34,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)addGroup:(id)sender{
     
 }
 
 - (IBAction)saveButton:(id)sender {
-    [self enableReport];
+    self.enableReport= self.emailAddress.text;
 }
--(bool)enableReport;
-{
-    return self.emailAddress.hasText;
-}
+
 
 /*
 #pragma mark - Navigation
