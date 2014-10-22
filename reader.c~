@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <string.h>
+#include <signal.h>
+
+#define FOO 4096
+#define LINE_LENGTH 256
+
+char *shmPtr;
+
+void sigHandler (int sigNum);
+
+int main (int argc, char** argv)
+{
+  key_t memKey;
+  int shmId;
+  
+  char fname[] = "/tmp";
+  int key = 65;
+
+  //Setting up the sigHandler for Ctrl-C
+  signal (SIGINT, sigHandler); 
+
+  //Checking the to make sure the key is correct
+  if((memKey = ftok(fname,key)) == (key_t)-1)
+  {
+    perror("IPC Error");
+  }
+
+  //Getting access to shared memory and setting flags for the user to read and write
+  if ((shmId = shmget (memKey, FOO, IPC_CREAT|S_IRUSR|S_IWUSR)) < 0) {
+     perror ("i can't get no..\n");
+     exit (1);
+  }
+  
+  //Attaching the shared memory to the address space of the process
+  if ((shmPtr = shmat (shmId, 0, 0)) == (void*) -1) {
+     perror ("can't attach\n");
+     exit (1);
+  }
+  
+  //increasing the flag to represent another subscriber(aka reader)
+  int flagIndex = *shmPtr;
+  (*shmPtr)++;
+   
+  fprintf(stdout,"Reader has subscriber ID %i\n",flagIndex);
+
+  //Checking to make sure a process has not terminated
+  while(*shmPtr)
+  {
+    //Checks to see if there is something to read
+    if(shmPtr[flagIndex])
+    {
+      char c[LINE_LENGTH];
+      int subscribers = *shmPtr;
+      //get what is in the shared memory
+      memcpy(c,&shmPtr[subscribers+1],sizeof(char)*(strlen(&shmPtr[subscribers+1])+1));
+      fprintf(stdout,"From writer: %s",c);
+      
+      shmPtr[flagIndex] = 0;
+    } 
+  }  
+}
+
+void sigHandler (int sigNum)
+{
+    printf (" received an interrupt.\n");
+    *shmPtr = 0;
+    printf ("outta here.\n");
+    exit(0);
+} 

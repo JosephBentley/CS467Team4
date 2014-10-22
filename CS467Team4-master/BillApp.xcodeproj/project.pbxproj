@@ -1,0 +1,707 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		331DE83919D0937100B1E828 /* CalendarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331DE83819D0937100B1E828 /* CalendarTableViewController.m */; };
+		331DE83E19D096BF00B1E828 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331DE83D19D096BF00B1E828 /* EventKit.framework */; };
+		331DE84019D096C800B1E828 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331DE83F19D096C800B1E828 /* EventKitUI.framework */; };
+		33509FB319D9A24A006BECBF /* DashboardTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FB219D9A24A006BECBF /* DashboardTableViewController.m */; };
+		33509FBC19D9A2C7006BECBF /* GroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FBB19D9A2C7006BECBF /* GroupTableViewController.m */; };
+		33509FBF19D9A2EC006BECBF /* ReportTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FBE19D9A2EB006BECBF /* ReportTableViewController.m */; };
+		33509FC519D9A33D006BECBF /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FC419D9A33D006BECBF /* PaymentViewController.m */; };
+		33509FC819D9A39F006BECBF /* ShoppingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FC719D9A39F006BECBF /* ShoppingListViewController.m */; };
+		33509FCB19D9A3E4006BECBF /* ShoppingListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FCA19D9A3E4006BECBF /* ShoppingListTableViewController.m */; };
+		33509FCE19D9A3F8006BECBF /* ShoppingListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FCD19D9A3F8006BECBF /* ShoppingListTableView.m */; };
+		33509FD419D9A438006BECBF /* PendingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FD319D9A438006BECBF /* PendingTableViewController.m */; };
+		33509FD719D9A45B006BECBF /* ProductEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FD619D9A45B006BECBF /* ProductEntryViewController.m */; };
+		33509FDA19D9A46F006BECBF /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FD919D9A46F006BECBF /* PhotoViewController.m */; };
+		33509FDD19D9A482006BECBF /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FDC19D9A482006BECBF /* CameraViewController.m */; };
+		33509FE019D9AC4D006BECBF /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33509FDF19D9AC4D006BECBF /* AccountViewController.m */; };
+		3385294119CA1BB70074D140 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3385294019CA1BB70074D140 /* Foundation.framework */; };
+		3385294319CA1BB70074D140 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3385294219CA1BB70074D140 /* CoreGraphics.framework */; };
+		3385294519CA1BB70074D140 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3385294419CA1BB70074D140 /* UIKit.framework */; };
+		3385294B19CA1BB70074D140 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3385294919CA1BB70074D140 /* InfoPlist.strings */; };
+		3385294D19CA1BB70074D140 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3385294C19CA1BB70074D140 /* main.m */; };
+		3385295119CA1BB70074D140 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3385295019CA1BB70074D140 /* AppDelegate.m */; };
+		3385295C19CA1BB70074D140 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3385295B19CA1BB70074D140 /* Images.xcassets */; };
+		3385296319CA1BB70074D140 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3385296219CA1BB70074D140 /* XCTest.framework */; };
+		3385296419CA1BB70074D140 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3385294019CA1BB70074D140 /* Foundation.framework */; };
+		3385296519CA1BB70074D140 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3385294419CA1BB70074D140 /* UIKit.framework */; };
+		3385296D19CA1BB70074D140 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3385296B19CA1BB70074D140 /* InfoPlist.strings */; };
+		3385296F19CA1BB70074D140 /* BillAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3385296E19CA1BB70074D140 /* BillAppTests.m */; };
+		338C630219D9E34F003D113C /* ReceiptTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338C630119D9E34F003D113C /* ReceiptTableViewController.m */; };
+		338C630519D9E369003D113C /* BarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338C630419D9E369003D113C /* BarcodeViewController.m */; };
+		338E737819DEDCD500DF6D78 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E737719DEDCD500DF6D78 /* LoginViewController.m */; };
+		338E737B19DEDCE300DF6D78 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E737A19DEDCE300DF6D78 /* CreateAccountViewController.m */; };
+		339A503019D30C4A00FE1513 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339A502F19D30C4A00FE1513 /* Storyboard.storyboard */; };
+		339FA23919F83AE500E31030 /* GVBills.m in Sources */ = {isa = PBXBuildFile; fileRef = 339FA22819F83AE500E31030 /* GVBills.m */; };
+		339FA23A19F83AE500E31030 /* GVBillsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 339FA22A19F83AE500E31030 /* GVBillsDAO.m */; };
+		339FA23B19F83AE500E31030 /* GVBillsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 339FA22C19F83AE500E31030 /* GVBillsService.m */; };
+		339FA23C19F83AE500E31030 /* GVItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 339FA22E19F83AE500E31030 /* GVItems.m */; };
+		339FA23D19F83AE500E31030 /* GVItemsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 339FA23019F83AE500E31030 /* GVItemsDAO.m */; };
+		339FA23E19F83AE500E31030 /* GVItemsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 339FA23219F83AE500E31030 /* GVItemsService.m */; };
+		339FA23F19F83AE500E31030 /* GVPayments.m in Sources */ = {isa = PBXBuildFile; fileRef = 339FA23419F83AE500E31030 /* GVPayments.m */; };
+		339FA24019F83AE500E31030 /* GVPaymentsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 339FA23619F83AE500E31030 /* GVPaymentsDAO.m */; };
+		339FA24119F83AE500E31030 /* GVPaymentsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 339FA23819F83AE500E31030 /* GVPaymentsService.m */; };
+		339FA24319F83B5800E31030 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA24219F83B5800E31030 /* AudioToolbox.framework */; };
+		339FA24519F83B6E00E31030 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA24419F83B6E00E31030 /* CFNetwork.framework */; };
+		339FA24719F83B8000E31030 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA24619F83B8000E31030 /* CoreLocation.framework */; };
+		339FA24919F83B8C00E31030 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA24819F83B8C00E31030 /* libz.dylib */; };
+		339FA24B19F83B9600E31030 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA24A19F83B9600E31030 /* MobileCoreServices.framework */; };
+		339FA24D19F83BA000E31030 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA24C19F83BA000E31030 /* QuartzCore.framework */; };
+		339FA24F19F83BA700E31030 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA24E19F83BA700E31030 /* Security.framework */; };
+		339FA25119F83BAF00E31030 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA25019F83BAF00E31030 /* StoreKit.framework */; };
+		339FA25319F83BB600E31030 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA25219F83BB600E31030 /* SystemConfiguration.framework */; };
+		339FA25519F83BE900E31030 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA25419F83BE900E31030 /* Bolts.framework */; };
+		339FA25719F83BF000E31030 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA25619F83BF000E31030 /* Parse.framework */; };
+		339FA25919F83C0700E31030 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339FA25819F83C0700E31030 /* ParseFacebookUtils.framework */; };
+		33DB38BD19F57966001BF1A7 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 33DB38BB19F57966001BF1A7 /* menu.png */; };
+		33DB38BE19F57966001BF1A7 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33DB38BC19F57966001BF1A7 /* menu@2x.png */; };
+		33F3C1FD19E3061600729A72 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3C1FC19E3061600729A72 /* MenuViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3385296619CA1BB70074D140 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3385293519CA1BB70074D140 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3385293C19CA1BB70074D140;
+			remoteInfo = BillApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		331DE83719D0937100B1E828 /* CalendarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTableViewController.h; sourceTree = "<group>"; };
+		331DE83819D0937100B1E828 /* CalendarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTableViewController.m; sourceTree = "<group>"; };
+		331DE83D19D096BF00B1E828 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		331DE83F19D096C800B1E828 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		33509FB119D9A24A006BECBF /* DashboardTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardTableViewController.h; sourceTree = "<group>"; };
+		33509FB219D9A24A006BECBF /* DashboardTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardTableViewController.m; sourceTree = "<group>"; };
+		33509FBA19D9A2C7006BECBF /* GroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewController.h; sourceTree = "<group>"; };
+		33509FBB19D9A2C7006BECBF /* GroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewController.m; sourceTree = "<group>"; };
+		33509FBD19D9A2EB006BECBF /* ReportTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportTableViewController.h; sourceTree = "<group>"; };
+		33509FBE19D9A2EB006BECBF /* ReportTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportTableViewController.m; sourceTree = "<group>"; };
+		33509FC319D9A33D006BECBF /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
+		33509FC419D9A33D006BECBF /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
+		33509FC619D9A39F006BECBF /* ShoppingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingListViewController.h; sourceTree = "<group>"; };
+		33509FC719D9A39F006BECBF /* ShoppingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingListViewController.m; sourceTree = "<group>"; };
+		33509FC919D9A3E4006BECBF /* ShoppingListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingListTableViewController.h; sourceTree = "<group>"; };
+		33509FCA19D9A3E4006BECBF /* ShoppingListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingListTableViewController.m; sourceTree = "<group>"; };
+		33509FCC19D9A3F8006BECBF /* ShoppingListTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingListTableView.h; sourceTree = "<group>"; };
+		33509FCD19D9A3F8006BECBF /* ShoppingListTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingListTableView.m; sourceTree = "<group>"; };
+		33509FD219D9A438006BECBF /* PendingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingTableViewController.h; sourceTree = "<group>"; };
+		33509FD319D9A438006BECBF /* PendingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingTableViewController.m; sourceTree = "<group>"; };
+		33509FD519D9A45B006BECBF /* ProductEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductEntryViewController.h; sourceTree = "<group>"; };
+		33509FD619D9A45B006BECBF /* ProductEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductEntryViewController.m; sourceTree = "<group>"; };
+		33509FD819D9A46F006BECBF /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		33509FD919D9A46F006BECBF /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		33509FDB19D9A482006BECBF /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		33509FDC19D9A482006BECBF /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		33509FDE19D9AC4D006BECBF /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		33509FDF19D9AC4D006BECBF /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		3385293D19CA1BB70074D140 /* BillApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3385294019CA1BB70074D140 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3385294219CA1BB70074D140 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3385294419CA1BB70074D140 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3385294819CA1BB70074D140 /* BillApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BillApp-Info.plist"; sourceTree = "<group>"; };
+		3385294A19CA1BB70074D140 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3385294C19CA1BB70074D140 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3385294E19CA1BB70074D140 /* BillApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BillApp-Prefix.pch"; sourceTree = "<group>"; };
+		3385294F19CA1BB70074D140 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3385295019CA1BB70074D140 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3385295B19CA1BB70074D140 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3385296119CA1BB70074D140 /* BillAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BillAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3385296219CA1BB70074D140 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3385296A19CA1BB70074D140 /* BillAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BillAppTests-Info.plist"; sourceTree = "<group>"; };
+		3385296C19CA1BB70074D140 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3385296E19CA1BB70074D140 /* BillAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BillAppTests.m; sourceTree = "<group>"; };
+		338C630019D9E34F003D113C /* ReceiptTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiptTableViewController.h; sourceTree = "<group>"; };
+		338C630119D9E34F003D113C /* ReceiptTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiptTableViewController.m; sourceTree = "<group>"; };
+		338C630319D9E369003D113C /* BarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarcodeViewController.h; sourceTree = "<group>"; };
+		338C630419D9E369003D113C /* BarcodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarcodeViewController.m; sourceTree = "<group>"; };
+		338E737619DEDCD500DF6D78 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		338E737719DEDCD500DF6D78 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		338E737919DEDCE300DF6D78 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
+		338E737A19DEDCE300DF6D78 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
+		339A502F19D30C4A00FE1513 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		339FA22719F83AE500E31030 /* GVBills.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVBills.h; sourceTree = "<group>"; };
+		339FA22819F83AE500E31030 /* GVBills.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVBills.m; sourceTree = "<group>"; };
+		339FA22919F83AE500E31030 /* GVBillsDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVBillsDAO.h; sourceTree = "<group>"; };
+		339FA22A19F83AE500E31030 /* GVBillsDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVBillsDAO.m; sourceTree = "<group>"; };
+		339FA22B19F83AE500E31030 /* GVBillsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVBillsService.h; sourceTree = "<group>"; };
+		339FA22C19F83AE500E31030 /* GVBillsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVBillsService.m; sourceTree = "<group>"; };
+		339FA22D19F83AE500E31030 /* GVItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVItems.h; sourceTree = "<group>"; };
+		339FA22E19F83AE500E31030 /* GVItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVItems.m; sourceTree = "<group>"; };
+		339FA22F19F83AE500E31030 /* GVItemsDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVItemsDAO.h; sourceTree = "<group>"; };
+		339FA23019F83AE500E31030 /* GVItemsDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVItemsDAO.m; sourceTree = "<group>"; };
+		339FA23119F83AE500E31030 /* GVItemsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVItemsService.h; sourceTree = "<group>"; };
+		339FA23219F83AE500E31030 /* GVItemsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVItemsService.m; sourceTree = "<group>"; };
+		339FA23319F83AE500E31030 /* GVPayments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVPayments.h; sourceTree = "<group>"; };
+		339FA23419F83AE500E31030 /* GVPayments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVPayments.m; sourceTree = "<group>"; };
+		339FA23519F83AE500E31030 /* GVPaymentsDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVPaymentsDAO.h; sourceTree = "<group>"; };
+		339FA23619F83AE500E31030 /* GVPaymentsDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVPaymentsDAO.m; sourceTree = "<group>"; };
+		339FA23719F83AE500E31030 /* GVPaymentsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVPaymentsService.h; sourceTree = "<group>"; };
+		339FA23819F83AE500E31030 /* GVPaymentsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVPaymentsService.m; sourceTree = "<group>"; };
+		339FA24219F83B5800E31030 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		339FA24419F83B6E00E31030 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		339FA24619F83B8000E31030 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		339FA24819F83B8C00E31030 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		339FA24A19F83B9600E31030 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		339FA24C19F83BA000E31030 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		339FA24E19F83BA700E31030 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		339FA25019F83BAF00E31030 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		339FA25219F83BB600E31030 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		339FA25419F83BE900E31030 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../parse-library-1.4.2/Bolts.framework"; sourceTree = "<group>"; };
+		339FA25619F83BF000E31030 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../parse-library-1.4.2/Parse.framework"; sourceTree = "<group>"; };
+		339FA25819F83C0700E31030 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../parse-library-1.4.2/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		33DB38BB19F57966001BF1A7 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		33DB38BC19F57966001BF1A7 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		33F3C1FB19E3061600729A72 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		33F3C1FC19E3061600729A72 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3385293A19CA1BB70074D140 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339FA25519F83BE900E31030 /* Bolts.framework in Frameworks */,
+				339FA25319F83BB600E31030 /* SystemConfiguration.framework in Frameworks */,
+				339FA25119F83BAF00E31030 /* StoreKit.framework in Frameworks */,
+				339FA24F19F83BA700E31030 /* Security.framework in Frameworks */,
+				339FA24D19F83BA000E31030 /* QuartzCore.framework in Frameworks */,
+				339FA25919F83C0700E31030 /* ParseFacebookUtils.framework in Frameworks */,
+				339FA24B19F83B9600E31030 /* MobileCoreServices.framework in Frameworks */,
+				339FA25719F83BF000E31030 /* Parse.framework in Frameworks */,
+				339FA24919F83B8C00E31030 /* libz.dylib in Frameworks */,
+				339FA24719F83B8000E31030 /* CoreLocation.framework in Frameworks */,
+				3385294319CA1BB70074D140 /* CoreGraphics.framework in Frameworks */,
+				339FA24519F83B6E00E31030 /* CFNetwork.framework in Frameworks */,
+				339FA24319F83B5800E31030 /* AudioToolbox.framework in Frameworks */,
+				331DE84019D096C800B1E828 /* EventKitUI.framework in Frameworks */,
+				331DE83E19D096BF00B1E828 /* EventKit.framework in Frameworks */,
+				3385294519CA1BB70074D140 /* UIKit.framework in Frameworks */,
+				3385294119CA1BB70074D140 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3385295E19CA1BB70074D140 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3385296319CA1BB70074D140 /* XCTest.framework in Frameworks */,
+				3385296519CA1BB70074D140 /* UIKit.framework in Frameworks */,
+				3385296419CA1BB70074D140 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3385293419CA1BB70074D140 = {
+			isa = PBXGroup;
+			children = (
+				3385294619CA1BB70074D140 /* BillApp */,
+				3385296819CA1BB70074D140 /* BillAppTests */,
+				3385293F19CA1BB70074D140 /* Frameworks */,
+				3385293E19CA1BB70074D140 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3385293E19CA1BB70074D140 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3385293D19CA1BB70074D140 /* BillApp.app */,
+				3385296119CA1BB70074D140 /* BillAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3385293F19CA1BB70074D140 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				339FA25219F83BB600E31030 /* SystemConfiguration.framework */,
+				339FA25019F83BAF00E31030 /* StoreKit.framework */,
+				339FA24E19F83BA700E31030 /* Security.framework */,
+				339FA24C19F83BA000E31030 /* QuartzCore.framework */,
+				339FA24A19F83B9600E31030 /* MobileCoreServices.framework */,
+				339FA24819F83B8C00E31030 /* libz.dylib */,
+				339FA24619F83B8000E31030 /* CoreLocation.framework */,
+				339FA24419F83B6E00E31030 /* CFNetwork.framework */,
+				339FA24219F83B5800E31030 /* AudioToolbox.framework */,
+				331DE83F19D096C800B1E828 /* EventKitUI.framework */,
+				331DE83D19D096BF00B1E828 /* EventKit.framework */,
+				3385294019CA1BB70074D140 /* Foundation.framework */,
+				3385294219CA1BB70074D140 /* CoreGraphics.framework */,
+				3385294419CA1BB70074D140 /* UIKit.framework */,
+				3385296219CA1BB70074D140 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3385294619CA1BB70074D140 /* BillApp */ = {
+			isa = PBXGroup;
+			children = (
+				3385294F19CA1BB70074D140 /* AppDelegate.h */,
+				3385295019CA1BB70074D140 /* AppDelegate.m */,
+				3385295B19CA1BB70074D140 /* Images.xcassets */,
+				3385294719CA1BB70074D140 /* Supporting Files */,
+				331DE83719D0937100B1E828 /* CalendarTableViewController.h */,
+				331DE83819D0937100B1E828 /* CalendarTableViewController.m */,
+				339A502F19D30C4A00FE1513 /* Storyboard.storyboard */,
+				33F3C1FB19E3061600729A72 /* MenuViewController.h */,
+				33F3C1FC19E3061600729A72 /* MenuViewController.m */,
+				338E737919DEDCE300DF6D78 /* CreateAccountViewController.h */,
+				338E737A19DEDCE300DF6D78 /* CreateAccountViewController.m */,
+				338E737619DEDCD500DF6D78 /* LoginViewController.h */,
+				338E737719DEDCD500DF6D78 /* LoginViewController.m */,
+				338C630319D9E369003D113C /* BarcodeViewController.h */,
+				338C630419D9E369003D113C /* BarcodeViewController.m */,
+				338C630019D9E34F003D113C /* ReceiptTableViewController.h */,
+				338C630119D9E34F003D113C /* ReceiptTableViewController.m */,
+				33509FDB19D9A482006BECBF /* CameraViewController.h */,
+				33509FDC19D9A482006BECBF /* CameraViewController.m */,
+				33509FD819D9A46F006BECBF /* PhotoViewController.h */,
+				33509FD919D9A46F006BECBF /* PhotoViewController.m */,
+				33509FD519D9A45B006BECBF /* ProductEntryViewController.h */,
+				33509FD619D9A45B006BECBF /* ProductEntryViewController.m */,
+				33509FD219D9A438006BECBF /* PendingTableViewController.h */,
+				33509FD319D9A438006BECBF /* PendingTableViewController.m */,
+				33509FC919D9A3E4006BECBF /* ShoppingListTableViewController.h */,
+				33509FCA19D9A3E4006BECBF /* ShoppingListTableViewController.m */,
+				33509FCC19D9A3F8006BECBF /* ShoppingListTableView.h */,
+				33509FCD19D9A3F8006BECBF /* ShoppingListTableView.m */,
+				33509FC619D9A39F006BECBF /* ShoppingListViewController.h */,
+				33509FC719D9A39F006BECBF /* ShoppingListViewController.m */,
+				33509FC319D9A33D006BECBF /* PaymentViewController.h */,
+				33509FC419D9A33D006BECBF /* PaymentViewController.m */,
+				33509FBD19D9A2EB006BECBF /* ReportTableViewController.h */,
+				33509FBE19D9A2EB006BECBF /* ReportTableViewController.m */,
+				33509FBA19D9A2C7006BECBF /* GroupTableViewController.h */,
+				33509FBB19D9A2C7006BECBF /* GroupTableViewController.m */,
+				33509FB119D9A24A006BECBF /* DashboardTableViewController.h */,
+				33509FB219D9A24A006BECBF /* DashboardTableViewController.m */,
+				33509FDE19D9AC4D006BECBF /* AccountViewController.h */,
+				33509FDF19D9AC4D006BECBF /* AccountViewController.m */,
+			);
+			path = BillApp;
+			sourceTree = "<group>";
+		};
+		3385294719CA1BB70074D140 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				339FA25819F83C0700E31030 /* ParseFacebookUtils.framework */,
+				339FA25619F83BF000E31030 /* Parse.framework */,
+				339FA25419F83BE900E31030 /* Bolts.framework */,
+				339FA22619F83A9600E31030 /* New Group */,
+				33DB38BB19F57966001BF1A7 /* menu.png */,
+				33DB38BC19F57966001BF1A7 /* menu@2x.png */,
+				3385294819CA1BB70074D140 /* BillApp-Info.plist */,
+				3385294919CA1BB70074D140 /* InfoPlist.strings */,
+				3385294C19CA1BB70074D140 /* main.m */,
+				3385294E19CA1BB70074D140 /* BillApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3385296819CA1BB70074D140 /* BillAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				3385296E19CA1BB70074D140 /* BillAppTests.m */,
+				3385296919CA1BB70074D140 /* Supporting Files */,
+			);
+			path = BillAppTests;
+			sourceTree = "<group>";
+		};
+		3385296919CA1BB70074D140 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3385296A19CA1BB70074D140 /* BillAppTests-Info.plist */,
+				3385296B19CA1BB70074D140 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		339FA22619F83A9600E31030 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				339FA22719F83AE500E31030 /* GVBills.h */,
+				339FA22819F83AE500E31030 /* GVBills.m */,
+				339FA22919F83AE500E31030 /* GVBillsDAO.h */,
+				339FA22A19F83AE500E31030 /* GVBillsDAO.m */,
+				339FA22B19F83AE500E31030 /* GVBillsService.h */,
+				339FA22C19F83AE500E31030 /* GVBillsService.m */,
+				339FA22D19F83AE500E31030 /* GVItems.h */,
+				339FA22E19F83AE500E31030 /* GVItems.m */,
+				339FA22F19F83AE500E31030 /* GVItemsDAO.h */,
+				339FA23019F83AE500E31030 /* GVItemsDAO.m */,
+				339FA23119F83AE500E31030 /* GVItemsService.h */,
+				339FA23219F83AE500E31030 /* GVItemsService.m */,
+				339FA23319F83AE500E31030 /* GVPayments.h */,
+				339FA23419F83AE500E31030 /* GVPayments.m */,
+				339FA23519F83AE500E31030 /* GVPaymentsDAO.h */,
+				339FA23619F83AE500E31030 /* GVPaymentsDAO.m */,
+				339FA23719F83AE500E31030 /* GVPaymentsService.h */,
+				339FA23819F83AE500E31030 /* GVPaymentsService.m */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3385293C19CA1BB70074D140 /* BillApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3385297219CA1BB70074D140 /* Build configuration list for PBXNativeTarget "BillApp" */;
+			buildPhases = (
+				3385293919CA1BB70074D140 /* Sources */,
+				3385293A19CA1BB70074D140 /* Frameworks */,
+				3385293B19CA1BB70074D140 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BillApp;
+			productName = BillApp;
+			productReference = 3385293D19CA1BB70074D140 /* BillApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3385296019CA1BB70074D140 /* BillAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3385297519CA1BB70074D140 /* Build configuration list for PBXNativeTarget "BillAppTests" */;
+			buildPhases = (
+				3385295D19CA1BB70074D140 /* Sources */,
+				3385295E19CA1BB70074D140 /* Frameworks */,
+				3385295F19CA1BB70074D140 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3385296719CA1BB70074D140 /* PBXTargetDependency */,
+			);
+			name = BillAppTests;
+			productName = BillAppTests;
+			productReference = 3385296119CA1BB70074D140 /* BillAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3385293519CA1BB70074D140 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Team4;
+				TargetAttributes = {
+					3385296019CA1BB70074D140 = {
+						TestTargetID = 3385293C19CA1BB70074D140;
+					};
+				};
+			};
+			buildConfigurationList = 3385293819CA1BB70074D140 /* Build configuration list for PBXProject "BillApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3385293419CA1BB70074D140;
+			productRefGroup = 3385293E19CA1BB70074D140 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3385293C19CA1BB70074D140 /* BillApp */,
+				3385296019CA1BB70074D140 /* BillAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3385293B19CA1BB70074D140 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33DB38BD19F57966001BF1A7 /* menu.png in Resources */,
+				339A503019D30C4A00FE1513 /* Storyboard.storyboard in Resources */,
+				33DB38BE19F57966001BF1A7 /* menu@2x.png in Resources */,
+				3385295C19CA1BB70074D140 /* Images.xcassets in Resources */,
+				3385294B19CA1BB70074D140 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3385295F19CA1BB70074D140 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3385296D19CA1BB70074D140 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3385293919CA1BB70074D140 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3385295119CA1BB70074D140 /* AppDelegate.m in Sources */,
+				33509FDD19D9A482006BECBF /* CameraViewController.m in Sources */,
+				339FA23C19F83AE500E31030 /* GVItems.m in Sources */,
+				338C630519D9E369003D113C /* BarcodeViewController.m in Sources */,
+				33509FBC19D9A2C7006BECBF /* GroupTableViewController.m in Sources */,
+				33509FD419D9A438006BECBF /* PendingTableViewController.m in Sources */,
+				33509FCE19D9A3F8006BECBF /* ShoppingListTableView.m in Sources */,
+				338C630219D9E34F003D113C /* ReceiptTableViewController.m in Sources */,
+				33509FC519D9A33D006BECBF /* PaymentViewController.m in Sources */,
+				33509FD719D9A45B006BECBF /* ProductEntryViewController.m in Sources */,
+				339FA23E19F83AE500E31030 /* GVItemsService.m in Sources */,
+				339FA24019F83AE500E31030 /* GVPaymentsDAO.m in Sources */,
+				3385294D19CA1BB70074D140 /* main.m in Sources */,
+				33509FC819D9A39F006BECBF /* ShoppingListViewController.m in Sources */,
+				33509FBF19D9A2EC006BECBF /* ReportTableViewController.m in Sources */,
+				331DE83919D0937100B1E828 /* CalendarTableViewController.m in Sources */,
+				33509FE019D9AC4D006BECBF /* AccountViewController.m in Sources */,
+				33509FDA19D9A46F006BECBF /* PhotoViewController.m in Sources */,
+				33F3C1FD19E3061600729A72 /* MenuViewController.m in Sources */,
+				339FA23A19F83AE500E31030 /* GVBillsDAO.m in Sources */,
+				339FA23D19F83AE500E31030 /* GVItemsDAO.m in Sources */,
+				339FA23F19F83AE500E31030 /* GVPayments.m in Sources */,
+				339FA24119F83AE500E31030 /* GVPaymentsService.m in Sources */,
+				339FA23B19F83AE500E31030 /* GVBillsService.m in Sources */,
+				33509FCB19D9A3E4006BECBF /* ShoppingListTableViewController.m in Sources */,
+				338E737B19DEDCE300DF6D78 /* CreateAccountViewController.m in Sources */,
+				339FA23919F83AE500E31030 /* GVBills.m in Sources */,
+				338E737819DEDCD500DF6D78 /* LoginViewController.m in Sources */,
+				33509FB319D9A24A006BECBF /* DashboardTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3385295D19CA1BB70074D140 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3385296F19CA1BB70074D140 /* BillAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3385296719CA1BB70074D140 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3385293C19CA1BB70074D140 /* BillApp */;
+			targetProxy = 3385296619CA1BB70074D140 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3385294919CA1BB70074D140 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3385294A19CA1BB70074D140 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3385296B19CA1BB70074D140 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3385296C19CA1BB70074D140 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3385297019CA1BB70074D140 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3385297119CA1BB70074D140 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3385297319CA1BB70074D140 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/xcodeuser/Downloads/parse-library-1.4.2",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BillApp/BillApp-Prefix.pch";
+				INFOPLIST_FILE = "BillApp/BillApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3385297419CA1BB70074D140 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/xcodeuser/Downloads/parse-library-1.4.2",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BillApp/BillApp-Prefix.pch";
+				INFOPLIST_FILE = "BillApp/BillApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3385297619CA1BB70074D140 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BillApp.app/BillApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BillApp/BillApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BillAppTests/BillAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		3385297719CA1BB70074D140 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BillApp.app/BillApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BillApp/BillApp-Prefix.pch";
+				INFOPLIST_FILE = "BillAppTests/BillAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3385293819CA1BB70074D140 /* Build configuration list for PBXProject "BillApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3385297019CA1BB70074D140 /* Debug */,
+				3385297119CA1BB70074D140 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3385297219CA1BB70074D140 /* Build configuration list for PBXNativeTarget "BillApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3385297319CA1BB70074D140 /* Debug */,
+				3385297419CA1BB70074D140 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3385297519CA1BB70074D140 /* Build configuration list for PBXNativeTarget "BillAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3385297619CA1BB70074D140 /* Debug */,
+				3385297719CA1BB70074D140 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3385293519CA1BB70074D140 /* Project object */;
+}
