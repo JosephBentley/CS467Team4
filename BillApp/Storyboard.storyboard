@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="V9O-Sc-pQZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="V9O-Sc-pQZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -9,8 +9,8 @@
             <objects>
                 <viewController id="bmU-nH-gEg" customClass="AccountViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="est-c2-klN"/>
-                        <viewControllerLayoutGuide type="bottom" id="mBQ-p1-MlB"/>
+                        <viewControllerLayoutGuide type="top" id="8H8-xV-JDk"/>
+                        <viewControllerLayoutGuide type="bottom" id="jvV-bV-Brg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NJq-ob-ynu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -133,8 +133,8 @@
             <objects>
                 <viewController id="Dtz-qx-yz8" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pTW-eC-4Ht"/>
-                        <viewControllerLayoutGuide type="bottom" id="5yw-wm-69x"/>
+                        <viewControllerLayoutGuide type="top" id="f7A-rS-lRC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cpg-dw-I1V"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CRi-vU-sbp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -158,6 +158,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="bmU-nH-gEg" kind="push" id="tay-cW-qAo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFx-yQ-s5v">
                                 <rect key="frame" x="74" y="313" width="107" height="30"/>
@@ -187,8 +190,8 @@
             <objects>
                 <viewController id="V4g-Wk-jMS" customClass="CreateAccountViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JXz-U7-PdO"/>
-                        <viewControllerLayoutGuide type="bottom" id="nw4-ND-h4X"/>
+                        <viewControllerLayoutGuide type="top" id="4SX-Bh-kRQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Av1-JK-XBa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="z6R-Kw-gVP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -298,8 +301,8 @@
             <objects>
                 <viewController storyboardIdentifier="eventViewController" id="cqr-v7-1Sf" customClass="EKEventViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jeY-KN-xss"/>
-                        <viewControllerLayoutGuide type="bottom" id="7lg-IJ-2bG"/>
+                        <viewControllerLayoutGuide type="top" id="xl6-c3-NHI"/>
+                        <viewControllerLayoutGuide type="bottom" id="iFu-Zt-NSZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GHn-cz-q3b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -498,8 +501,8 @@
             <objects>
                 <viewController id="650-yZ-olK" customClass="PaymentViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cMM-fd-bCN"/>
-                        <viewControllerLayoutGuide type="bottom" id="ENw-Cj-hQA"/>
+                        <viewControllerLayoutGuide type="top" id="dg7-pV-vB8"/>
+                        <viewControllerLayoutGuide type="bottom" id="ppI-QU-eiI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BEQ-qr-QGa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -559,8 +562,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController id="ZmU-fJ-Ryd" customClass="ProductEntryViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Nbb-9V-YRG"/>
-                        <viewControllerLayoutGuide type="bottom" id="iZV-0T-kAW"/>
+                        <viewControllerLayoutGuide type="top" id="x4j-0i-NEw"/>
+                        <viewControllerLayoutGuide type="bottom" id="7eV-VK-scX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="I5D-qT-Bv7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -638,19 +641,182 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <segue destination="j42-XV-1bP" kind="push" identifier="TObill" id="hQ2-g9-Id9"/>
                         <segue destination="Zj2-Qc-odk" kind="push" identifier="TOpending" id="CFG-OP-fpd"/>
                         <segue destination="hAD-I1-1bK" kind="push" identifier="TOshopping" id="g34-E4-0UO"/>
+                        <segue destination="XZ4-b9-X2M" kind="push" identifier="TOscanbarcode" id="Gig-uU-ago"/>
+                        <segue destination="L5j-WG-jE6" kind="push" identifier="TOexistingreceipt" id="KEs-8Z-DCF"/>
+                        <segue destination="fSl-Sx-KBH" kind="push" identifier="TOtakereceipt" id="4MW-x8-2rF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZw-qp-zJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2387" y="2096"/>
         </scene>
+        <!--Take Receipt View Controller - TakeReceipt-->
+        <scene sceneID="T1t-gS-a5S">
+            <objects>
+                <viewController title="TakeReceipt" id="fSl-Sx-KBH" customClass="TakeReceiptViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o5J-ag-4i1"/>
+                        <viewControllerLayoutGuide type="bottom" id="qoH-97-F8L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BdO-xD-oGA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNg-mF-I7T">
+                                <rect key="frame" x="137" y="506" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="imageView" translatesAutoresizingMaskIntoConstraints="NO" id="zKB-FX-mHb">
+                                <rect key="frame" x="0.0" y="63" width="320" height="331"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="had-RK-tyB">
+                                <rect key="frame" x="122" y="402" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="fSl-Sx-KBH" eventType="touchUpInside" id="B7W-v6-FLP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8OU-qi-PuR">
+                                <rect key="frame" x="114" y="440" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Scan Receipt">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanReceipt:" destination="fSl-Sx-KBH" eventType="touchUpInside" id="Ovv-dQ-3Ry"/>
+                                    <segue destination="IcY-vM-RPu" kind="push" id="U4u-gA-ZYH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uFu-aI-7Kt"/>
+                    <connections>
+                        <outlet property="imageView" destination="zKB-FX-mHb" id="dcE-7K-aNG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cw0-6s-GET" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1846" y="3130"/>
+        </scene>
+        <!--Scan Barcode View Controller - ScanBarcode-->
+        <scene sceneID="fSR-eD-soD">
+            <objects>
+                <viewController title="ScanBarcode" id="XZ4-b9-X2M" customClass="ScanBarcodeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pSp-Eb-DRA"/>
+                        <viewControllerLayoutGuide type="bottom" id="4gO-2x-zXo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Af-2V-z6w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" (╯°□°)╯︵  punoℲ ʇoN ɐɹǝɯɐƆ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eep-Ut-e25">
+                                <rect key="frame" x="34" y="273" width="252" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="551-Sj-eKr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="brl-Xd-5kJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1362" y="3136"/>
+        </scene>
+        <!--Tesseract View Controller-->
+        <scene sceneID="Q1V-WK-Mbl">
+            <objects>
+                <viewController id="IcY-vM-RPu" customClass="TesseractViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OLw-oD-L4K"/>
+                        <viewControllerLayoutGuide type="bottom" id="1f8-uu-e2y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SR4-eM-1vj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scanning . . ." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGM-ZH-PtZ">
+                                <rect key="frame" x="122" y="201" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ex7-As-NEs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y7n-AC-Upz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1362" y="3836"/>
+        </scene>
+        <!--Existing Receipt View Controller - ExisintgReceipt-->
+        <scene sceneID="fMl-yT-StZ">
+            <objects>
+                <viewController title="ExisintgReceipt" id="L5j-WG-jE6" customClass="ExistingReceiptViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Cz-QQ-5RO"/>
+                        <viewControllerLayoutGuide type="bottom" id="S8H-Rd-SVY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7QY-S9-Lku">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="imageView" translatesAutoresizingMaskIntoConstraints="NO" id="jDb-Q4-aYR">
+                                <rect key="frame" x="0.0" y="66" width="320" height="331"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lg4-I5-X2I">
+                                <rect key="frame" x="114" y="440" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Scan Receipt">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanReceipt:" destination="L5j-WG-jE6" eventType="touchUpInside" id="hYf-86-0pu"/>
+                                    <segue destination="IcY-vM-RPu" kind="push" id="yec-Wx-6Gb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0r-VO-Vfi">
+                                <rect key="frame" x="105" y="405" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose Receipt">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseReceipt:" destination="L5j-WG-jE6" eventType="touchUpInside" id="IhW-mc-Ul1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pGh-s5-SaZ"/>
+                    <connections>
+                        <outlet property="imageView" destination="jDb-Q4-aYR" id="zBm-Ks-DEJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="INJ-Ec-bgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-930" y="3128"/>
+        </scene>
         <!--Camera View Controller - Camera-->
         <scene sceneID="e1v-Lf-dCs">
             <objects>
                 <viewController id="VoM-P4-vPh" customClass="CameraViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qD0-hH-Nk0"/>
-                        <viewControllerLayoutGuide type="bottom" id="ZLh-Qr-IL4"/>
+                        <viewControllerLayoutGuide type="top" id="TUv-l2-08B"/>
+                        <viewControllerLayoutGuide type="bottom" id="n2P-bL-aj6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="98Q-xt-6r3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -708,8 +874,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController id="1MQ-Md-gkt" customClass="BarcodeViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cca-dt-xWL"/>
-                        <viewControllerLayoutGuide type="bottom" id="dOI-gT-XGb"/>
+                        <viewControllerLayoutGuide type="top" id="FbF-Ld-qa0"/>
+                        <viewControllerLayoutGuide type="bottom" id="p98-OM-js3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jXB-xX-jMz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -826,8 +992,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController id="Dzp-cV-Mlq" customClass="ShoppingListViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Wc4-vV-Fo4"/>
-                        <viewControllerLayoutGuide type="bottom" id="1tb-jg-PJG"/>
+                        <viewControllerLayoutGuide type="top" id="aBb-z8-aiW"/>
+                        <viewControllerLayoutGuide type="bottom" id="2W3-6m-VBn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SVj-ZZ-m7P">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1001,9 +1167,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <segue reference="hQ2-g9-Id9"/>
         <segue reference="Fvh-jd-YXb"/>
         <segue reference="6mc-1Y-xo7"/>
-        <segue reference="vOz-wX-lmc"/>
-        <segue reference="CFG-OP-fpd"/>
         <segue reference="g34-E4-0UO"/>
+        <segue reference="CFG-OP-fpd"/>
+        <segue reference="vOz-wX-lmc"/>
         <segue reference="nxQ-sD-B1Y"/>
+        <segue reference="yec-Wx-6Gb"/>
     </inferredMetricsTieBreakers>
 </document>

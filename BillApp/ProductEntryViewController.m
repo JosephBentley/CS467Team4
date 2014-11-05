@@ -58,7 +58,7 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Take Receipt Photo", @"Take Barcode Photo", @"Choose Existing Receipt",nil];
+                                                    otherButtonTitles:@"Take Receipt Photo", @"Scan Barcode", @"Existing Receipt",nil];
     actionSheet.tag = 100;
     [actionSheet showInView:self.view];
 }
@@ -75,21 +75,25 @@
 }
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (actionSheet.tag == 200) {
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Dashboard"])
-        [self performSegueWithIdentifier:@"TOdashboard" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Account Info"])
-        [self performSegueWithIdentifier:@"TOaccount" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Bill List"])
-        [self performSegueWithIdentifier:@"TObill" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Pending List"])
-        [self performSegueWithIdentifier:@"TOpending" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Shopping List"])
-        [self performSegueWithIdentifier:@"TOshopping" sender:self];
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Dashboard"])
+            [self performSegueWithIdentifier:@"TOdashboard" sender:self];
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Account Info"])
+            [self performSegueWithIdentifier:@"TOaccount" sender:self];
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Bill List"])
+            [self performSegueWithIdentifier:@"TObill" sender:self];
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Pending List"])
+            [self performSegueWithIdentifier:@"TOpending" sender:self];
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Shopping List"])
+            [self performSegueWithIdentifier:@"TOshopping" sender:self];
     }
     if (actionSheet.tag == 100) {
+        
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Take Receipt Photo"])[self performSegueWithIdentifier:@"TOtakereceipt" sender:self];
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Scan Barcode"])[self performSegueWithIdentifier:@"TOscanbarcode" sender:self];
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Existing Receipt"])[self performSegueWithIdentifier:@"TOexistingreceipt" sender:self];
 
-    self.dest=[actionSheet buttonTitleAtIndex:buttonIndex];
-    [self performSegueWithIdentifier:@"productEntryTOcamera" sender:self];
+    //self.dest=[actionSheet buttonTitleAtIndex:buttonIndex];
+    //[self performSegueWithIdentifier:@"productEntryTOcamera" sender:self];
     }
 }
 
