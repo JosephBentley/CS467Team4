@@ -22,10 +22,18 @@
     }
     return self;
 }
-
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    //TODO Check if logged in
+    if(false)
+        //logged in - seque to account screen
+        [self performSegueWithIdentifier:@"TOaccount" sender:self];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.invalidText.hidden=true;
     // Do any additional setup after loading the view.
 }
 
@@ -45,5 +53,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
+- (IBAction)loginPressed:(id)sender {
+    //TODO verify login info
+    
+    //logged in - seque to account screen
+    if(true)
+        self.invalidText.hidden=false;
+    
+    else
+        [self performSegueWithIdentifier:@"TOaccount" sender:self];
+    
+}
 @end

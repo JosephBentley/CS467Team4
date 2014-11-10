@@ -7,7 +7,7 @@
 //
 
 #import "ReceiptTableViewController.h"
-
+#import "tesseract.h"
 @interface ReceiptTableViewController ()
 
 @end
@@ -32,6 +32,9 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.hidesBackButton = YES;
+
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,33 +42,37 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)setDetailItem:(NSArray*)newDetailItem
+{
+    if (self.myWords != newDetailItem) {
+        self.myWords  = newDetailItem;
+    }
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [_myWords count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    cell.detailTextLabel.text = @"$$$";
+    cell.textLabel.text = [_myWords objectAtIndex:indexPath.row];//@"Item";
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

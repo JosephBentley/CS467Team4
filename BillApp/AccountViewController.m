@@ -36,8 +36,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addGroup:(id)sender{
-    
+
+- (IBAction)createGroup:(id)sender {
 }
 
 - (IBAction)saveButton:(id)sender {
@@ -52,6 +52,9 @@
     actionSheet.tag = 100;
     
     [actionSheet showInView:self.view];
+}
+
+- (IBAction)addGroup:(id)sender {
 }
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (actionSheet.tag == 100) {
@@ -68,7 +71,9 @@
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Shopping List"])
         [self performSegueWithIdentifier:@"TOshopping" sender:self];
 }
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
 #pragma mark - Navigation
 

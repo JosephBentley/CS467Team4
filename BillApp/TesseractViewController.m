@@ -8,6 +8,7 @@
 
 #import "TesseractViewController.h"
 #import "tesseract.h"
+#import "ReceiptTableViewController.h"
 
 @interface TesseractViewController ()
 
@@ -24,6 +25,13 @@
     return self;
 }
 
+- (void)setDetailItem:(UIImage*)newDetailItem
+{
+    if (self.receiptImage != newDetailItem) {
+        self.receiptImage  = newDetailItem;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,7 +44,7 @@
     
     [activityIndicator startAnimating];
     
-    
+self.navigationItem.hidesBackButton = YES;
     //Start an activity indicator here
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -52,7 +60,9 @@
             
             [activityIndicator stopAnimating];
             
+
         });
+        
     });
     
 }
@@ -63,7 +73,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -71,18 +81,28 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"TOreceipt"])
+    {
+        
+        ReceiptTableViewController *vc = [segue destinationViewController];
+        vc.text=[self tesseractOCR];
+    }
+    
 }
-*/
 
-- (void)tesseractOCR
+
+- (NSString *)tesseractOCR
 {
     //ADDED
     //[NSThread sleepForTimeInterval:5];
     Tesseract* tesseract = [[Tesseract alloc] initWithDataPath:@"tessdata" language:@"eng"];
     //[tesseract setVariableValue:@"0123456789" forKey:@"tessedit_char_whitelist"];
-    [tesseract setImage:[UIImage imageNamed:@"target.jpg"]];
+    //UIImage *img=[UIImage imageNamed:@"target.jpg"];
+   // [tesseract setImage:[UIImage imageNamed:@"target.jpg"]];
+    [tesseract setImage:self.receiptImage];
     [tesseract recognize];
     
     NSLog(@"%@", [tesseract recognizedText]);
+    return [tesseract recognizedText];
 }
 @end

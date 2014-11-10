@@ -46,14 +46,14 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 - (IBAction)menu:(id)sender{
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
@@ -68,7 +68,6 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (actionSheet.tag == 100) {
         NSLog(@"From didDismissWithButtonIndex - Selected: %@", [actionSheet buttonTitleAtIndex:buttonIndex]);
-    }
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Dashboard"])
         [self performSegueWithIdentifier:@"TOdashboard" sender:self];
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Account Info"])
@@ -79,17 +78,43 @@
         [self performSegueWithIdentifier:@"TObill" sender:self];
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Shopping List"])
         [self performSegueWithIdentifier:@"TOshopping" sender:self];
+    }
+    //Selected a row
+    else if (actionSheet.tag == 200) {
+        //TODO - update db. accept the pending payment
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Accept"]){
+            
+        }
+        //TODO - update db. decline the pending payment
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Decline"]){
+            
+        }
+    }
 }
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    //Name of member
+    cell.textLabel.text=@"Bill";
+    //Amount pending
+    cell.detailTextLabel.text= @"$30";
     return cell;
 }
-*/
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Accept",@"Decline",nil];
+    actionSheet.tag = 200;
+    
+    [actionSheet showInView:self.view];
+    
+}
 
 /*
 // Override to support conditional editing of the table view.

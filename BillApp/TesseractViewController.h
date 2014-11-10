@@ -10,5 +10,6 @@
 
 @interface TesseractViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITextView *textField;
-
+@property (strong, nonatomic) UIImage * receiptImage;
+- (void)setDetailItem:(UIImage*)newDetailItem;
 @end

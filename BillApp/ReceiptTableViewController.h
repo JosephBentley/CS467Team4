@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ReceiptTableViewController : UITableViewController
-
+@property (weak, nonatomic) NSString * text;
+@property (strong, nonatomic) UIImage * receiptImage;
+- (void)setDetailItem:(NSArray*)newDetailItem;
+@property (strong, nonatomic) NSArray *myWords;
 @end

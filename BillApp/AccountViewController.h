@@ -21,5 +21,6 @@
 @property (weak, nonatomic) NSString* first;
 @property (weak, nonatomic) NSString* last;
 - (IBAction)menu:(id)sender;
+- (IBAction)createGroup:(id)sender;
 @property (weak, nonatomic) NSString* email;
 @end
