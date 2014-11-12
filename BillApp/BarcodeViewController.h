@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BarcodeViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UITextField *itemName;
+@property (weak, nonatomic) IBOutlet UITextField *itemPrice;
+@property (weak, nonatomic) IBOutlet UIPickerView *groupName;
+@property (weak,nonatomic) NSString* description;
 @end

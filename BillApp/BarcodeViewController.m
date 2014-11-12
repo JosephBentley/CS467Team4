@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.hidesBackButton = YES;
+    self.itemName.text = self.description;
+        
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,6 +14,8 @@
 @property (nonatomic, assign)double interestRate;
 @property (nonatomic, assign)int interval;
 @property (strong, nonatomic)NSDate* nextPayDate;
+@property (strong, nonatomic)NSString* boughtByName;
+@property (strong, nonatomic)NSString* group;
 -(GVPayments*)init;
--(id)initWithName:(NSString*)paymentName total:(double)total interestRate:(double)interestRate interval:(int)interval nextPayDate:(NSDate*)nextPayDate;
+-(id)initWithName:(NSString*)paymentName total:(double)total interestRate:(double)interestRate interval:(int)interval nextPayDate:(NSDate*)nextPayDate boughtBy:(NSString*)boughtByName group:(NSString*)group;
 @end

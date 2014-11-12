@@ -32,6 +32,7 @@ BOOL receiptSelected = NO;
     // Do any additional setup after loading the view.
     
     [self selectPhoto:(UIButton *)@"ExistingReceipt"];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,17 +83,18 @@ BOOL receiptSelected = NO;
     receiptSelected = NO;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         //Call your function or whatever work that needs to be done
         //Code in this part is run on a background thread
+        
+        //TODO PARSE STRING
         _myWords = [[self tesseractOCR] componentsSeparatedByString:@"\n"];
         
         dispatch_async(dispatch_get_main_queue(), ^ {
             
             //Stop your activity indicator or anything else with the GUI
             //Code here is run on the main thread
-            
-            // [activityIndicator stopAnimating];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             [self performSegueWithIdentifier:@"TOtable" sender:self];
         });
         

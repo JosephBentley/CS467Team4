@@ -9,7 +9,8 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import "ScanBarcodeViewController.h"
-
+#import "GVHttpCommunication.h"
+#import "BarcodeViewController.h"
 @interface ScanBarcodeViewController () <AVCaptureMetadataOutputObjectsDelegate>
 {
     AVCaptureSession *_session;
@@ -20,6 +21,9 @@
     
     UIView *_highlightView;
     UILabel *_label;
+    
+    GVHttpCommunication *http;
+    NSString * ucpDescription;
 }
 @end
 
@@ -102,6 +106,28 @@
         if (detectionString != nil)
         {
             _label.text = detectionString;
+            
+            
+            
+            http = [[GVHttpCommunication alloc] init];
+            //NSString * upc = @"12000024528";
+            NSString * startURL =@"http://api.upcdatabase.org/json/0f27fbc0c4fb2925684dd1f7fbe87ecd/";
+            NSString  *urlWithUPC = [startURL stringByAppendingString:detectionString];
+            NSURL *url = [NSURL URLWithString:urlWithUPC];
+            [http retrieveURL:url successBlock:^(NSData *response) {
+                NSError *error = nil;
+                NSDictionary *data = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error];
+                
+                if(!error) {
+                    ucpDescription = data[@"description"];
+                    NSLog(@"%@",ucpDescription);
+                    [self performSegueWithIdentifier:@"TObarcode" sender:self];
+                }
+            }];
+            
+            
+            
+            
             break;
         }
         else
@@ -110,5 +136,16 @@
     
     _highlightView.frame = highlightViewRect;
 }
+#pragma mark - Navigation
 
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"TObarcode"])
+    {
+        
+        BarcodeViewController *vc = [segue destinationViewController];
+        vc.description=ucpDescription;
+    }
+}
 @end

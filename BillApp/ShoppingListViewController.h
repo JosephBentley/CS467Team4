@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ShoppingListViewController : UIViewController 
+- (IBAction)cancelPressed:(id)sender;
+- (IBAction)savePressed:(id)sender;
 
 @end

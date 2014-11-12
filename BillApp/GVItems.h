@@ -13,6 +13,8 @@
 @property (nonatomic, assign)double cost;
 @property (strong, nonatomic)NSString* productID;
 @property (strong, nonatomic)NSNumber* sharedFlag;
+@property (strong, nonatomic)NSString* boughtByName;
+@property (strong, nonatomic)NSString* group;
 -(GVItems*)init;
--(id)initWithName:(NSString*)itemName cost:(double)cost productID:(NSString*)productID sharedItem:(NSNumber*)sharedFlag;
+-(id)initWithName:(NSString*)itemName cost:(double)cost productID:(NSString*)productID sharedItem:(NSNumber*)sharedFlag boughtBy:(NSString*)boughtByName group:(NSString*)group;
 @end

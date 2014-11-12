@@ -131,7 +131,7 @@ UIImage *imageToBeSaved;
             [myAlertView show];*/
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             //Call your function or whatever work that needs to be done
             //Code in this part is run on a background thread
             _myWords = [[self tesseractOCR] componentsSeparatedByString:@"\n"];
@@ -140,8 +140,7 @@ UIImage *imageToBeSaved;
                 
                 //Stop your activity indicator or anything else with the GUI
                 //Code here is run on the main thread
-                
-                // [activityIndicator stopAnimating];
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                 [self performSegueWithIdentifier:@"TOtable" sender:self];
             });
             

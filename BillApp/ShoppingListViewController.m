@@ -47,4 +47,10 @@
 }
 */
 
+- (IBAction)cancelPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)savePressed:(id)sender {
+}
 @end

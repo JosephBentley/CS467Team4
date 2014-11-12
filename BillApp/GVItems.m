@@ -17,17 +17,21 @@
         self.cost = -1.0;
         self.productID = nil;
         self.sharedFlag = @-1;
+        self.boughtByName = nil;
+        self.group = nil;
     }
     return self;
 }
 
--(id)initWithName:(NSString*)itemName cost:(double)cost productID:(NSString*)productID sharedItem:(NSNumber*)sharedFlag
+-(id)initWithName:(NSString*)itemName cost:(double)cost productID:(NSString*)productID sharedItem:(NSNumber*)sharedFlag boughtBy:(NSString*)boughtByName group:(NSString*)group
 {
     if (self = [super init]) {
         self.name = itemName;
         self.cost = cost;
         self.productID = productID;
         self.sharedFlag = sharedFlag;
+        self.boughtByName = boughtByName;
+        self.group = group;
     }
     return self;
 }

@@ -18,11 +18,13 @@
         self.interestRate = -1.0;
         self.interval = -1;
         self.nextPayDate = nil;
+        self.boughtByName = nil;
+        self.group = nil;
     }
     return self;
 }
 
--(id)initWithName:(NSString*)paymentName total:(double)total interestRate:(double)interestRate interval:(int)interval nextPayDate:(NSDate*)nextPayDate;
+-(id)initWithName:(NSString*)paymentName total:(double)total interestRate:(double)interestRate interval:(int)interval nextPayDate:(NSDate*)nextPayDate boughtBy:(NSString*)boughtByName group:(NSString*)group
 {
     if (self = [super init]) {
         self.name = paymentName;
@@ -30,6 +32,8 @@
         self.interestRate = interestRate;
         self.interval = interval;
         self.nextPayDate = nextPayDate;
+        self.boughtByName = boughtByName;
+        self.group = group;
     }
     return self;
 }

@@ -13,6 +13,8 @@
 @property (nonatomic, assign)double cost;
 @property (nonatomic, assign)int interval;
 @property (strong, nonatomic)NSDate* nextPayDate;
+@property (strong, nonatomic)NSString* boughtByName;
+@property (strong, nonatomic)NSString* group;
 -(GVBills*)init;
--(id)initWithName:(NSString*)billName cost:(double)cost interval:(int)interval nextPayDate:(NSDate*)nextPayDate;
+-(id)initWithName:(NSString*)name cost:(double)cost interval:(int)interval nextPayDate:(NSDate*)nextPayDate boughtBy:(NSString*)boughtByName group:(NSString*)group;
 @end

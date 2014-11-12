@@ -8,7 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "GVItems.h"
-
+#import "GVItemsDAO.h"
 @interface GVItemsService : NSObject
--(bool)saveItemInBackgroundWithGVItem:(GVItems*)item error:(NSError**)error;
+@property (weak, nonatomic)GVItemsDAO* sharedGVItemsDAO;
+-(void)saveItemInBackgroundWithGVItemWithBlock:(GVItems*)item block:(void (^) (BOOL succeeded, NSError* error) )block;
+-(void)getAllUserItemsUsingBlock:(void (^)(NSMutableArray* items, NSError* error) ) block;
+-(void)queryUserItemsWithGroupNameWithBlock:(NSString*)groupname block:(void (^) (NSMutableArray* userItemsInGroup, NSError* error)) block;
+-(void)queryGroupItemsWithGroupNameWithBlock:(NSString*)groupname block:(void (^) (NSMutableArray* userItemsInGroup, NSError* error)) block;
+-(void)queryGroupItemsWithUserNameWithBlock:(NSString*)username group:(NSString*)groupname block:(void (^) (NSMutableArray* userItemsInGroup, NSError* error)) block;
 @end
