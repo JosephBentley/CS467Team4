@@ -29,14 +29,14 @@
     [Parse setApplicationId:@"dAhnicEdKgozj3bWI1dNhnxVb81hxE6D4nldgbKn"
                   clientKey:@"kfidbzgRxQj8aJR8ETnqkkv2bGucp1lzTC4kaD0M"];
     
-    [PFUser enableAutomaticUser];
+    //[PFUser enableAutomaticUser];
     
-    PFACL *defaultACL = [PFACL ACL];
+    //PFACL *defaultACL = [PFACL ACL];
     
     // If you would like all objects to be private by default, remove this line.
-    [defaultACL setPublicReadAccess:YES];
+    //[defaultACL setPublicReadAccess:YES];
     
-    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+    //[PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     /*
      // Override point for customization after application launch.
      

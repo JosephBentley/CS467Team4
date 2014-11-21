@@ -54,7 +54,8 @@
                 }];
             }
             else {
-                [itemObject setObject:nil forKey:GROUPS_COLUMN_NAME];
+                NSNull* nsNull;
+                [itemObject setObject:nsNull forKey:GROUPS_COLUMN_NAME];
                 [itemObject saveInBackgroundWithBlock:block];
             }
         }];

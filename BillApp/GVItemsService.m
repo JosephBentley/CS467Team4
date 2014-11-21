@@ -28,12 +28,14 @@
             }
             else {
                 //set custom error message to send to control block below?
+                NSLog(@"Something went wrong in DAO layer.");
                 block(succeeded, error);
             }
         }];
     }
     else{
         //NSError* error = [[NSError alloc] initWithDomain:@"com.gvsu.edu" code:-400 userInfo:[[NSDictionary alloc]init]];
+        NSLog(@"A value was not set correctly in the view controller.");
         block(FALSE, [[NSError alloc] initWithDomain:@"com.gvsu.edu" code:-400 userInfo:[[NSDictionary alloc]init]]);
     }
 }
@@ -69,12 +71,12 @@
 
 -(void)queryGroupItemsWithGroupNameWithBlock:(NSString*)groupname block:(void (^) (NSMutableArray* userItemsInGroup, NSError* error)) block
 {
-    [self queryGroupItemsWithGroupNameWithBlock:groupname block:block];
+    [self.sharedGVItemsDAO queryGroupItemsWithGroupNameWithBlock:groupname block:block];
 }
 
 -(void)queryGroupItemsWithUserNameWithBlock:(NSString*)username group:(NSString*)groupname block:(void (^) (NSMutableArray* userItemsInGroup, NSError* error)) block
 {
-    [self queryGroupItemsWithUserNameWithBlock:username group:groupname block:block];
+    [self.sharedGVItemsDAO queryGroupItemsWithUserNameWithBlock:username group:groupname block:block];
 }
 
 

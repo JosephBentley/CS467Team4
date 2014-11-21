@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GVItems.h"
 
 @interface TakeReceiptViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
@@ -14,4 +15,8 @@
 - (IBAction)scanReceipt:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *scanReceiptLabel;
 @property (strong, nonatomic) NSArray *myWords;
+@property (strong, nonatomic) NSMutableArray *entries;
+@property (strong, nonatomic) NSMutableArray *prices;
+@property (strong, nonatomic) NSMutableArray *product;
+@property (strong, nonatomic) NSMutableArray* gvItems;
 @end

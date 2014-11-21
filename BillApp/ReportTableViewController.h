@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GVItems.h"
 @interface ReportTableViewController : UITableViewController
-
+@property (strong, nonatomic)NSMutableArray* items;
 @end

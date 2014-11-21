@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GVGroupsService.h"
+#import "GVItemsService.h"
 
-@interface ProductEntryViewController : UIViewController <UIActionSheetDelegate>
+
+@interface ProductEntryViewController : UIViewController <UIActionSheetDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITextField *productName;
 @property (weak, nonatomic) IBOutlet UITextField *price;
@@ -17,4 +20,9 @@
 - (IBAction)PhotoButton:(id)sender;
 //Use to determine where to go after taking a picture
 @property (weak,nonatomic) NSString *dest;
+
+@property (strong, nonatomic) GVGroupsService* groupService;
+@property (strong, nonatomic) GVItemsService* itemsService;
+@property (strong, nonatomic) NSArray* groupNames;
+@property (strong, nonatomic) NSString* selectedGroup;
 @end

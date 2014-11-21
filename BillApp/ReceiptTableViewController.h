@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GVItems.h"
 
 @interface ReceiptTableViewController : UITableViewController
 @property (weak, nonatomic) NSString * text;
 @property (strong, nonatomic) UIImage * receiptImage;
-- (void)setDetailItem:(NSArray*)newDetailItem;
-@property (strong, nonatomic) NSArray *myWords;
+- (void)setProducts:(NSArray*)products setPrices:(NSArray*)pricesArray;
+@property (strong, nonatomic) NSArray *prices;
+@property (strong, nonatomic) NSArray *product;
+@property (strong, nonatomic) NSArray* gvItems;
 @end

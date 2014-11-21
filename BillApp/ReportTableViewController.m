@@ -8,7 +8,8 @@
 
 #import "ReportTableViewController.h"
 
-@interface ReportTableViewController ()
+@interface ReportTableViewController (){
+}
 
 @end
 
@@ -44,28 +45,24 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
+    return self.items.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GVuser" forIndexPath:indexPath];
+    GVItems* item = self.items[indexPath.row];
+    cell.textLabel.text = item.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.02f", item.cost];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -105,15 +102,14 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
 }
-*/
+
 
 @end

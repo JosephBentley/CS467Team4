@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GVUserService.h"
+#import "GVGroupsService.h"
+
 
 @interface AccountViewController : UIViewController <UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
@@ -15,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UITextField *groupName;
+
 - (IBAction)addGroup:(id)sender;
 - (IBAction)saveButton:(id)sender;
 @property (strong, nonatomic) NSString *enableReport;
@@ -23,4 +27,8 @@
 - (IBAction)menu:(id)sender;
 - (IBAction)createGroup:(id)sender;
 @property (weak, nonatomic) NSString* email;
+@property (strong, nonatomic)GVUserService* userService;
+@property (strong, nonatomic)GVGroupsService* groupService;
+- (IBAction)invitesPressed:(id)sender;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "ProductEntryViewController.h"
 #import "CameraViewController.h"
+#import "GVGroups.h"
 
 @interface ProductEntryViewController ()
 
@@ -28,6 +29,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.groupService = [[GVGroupsService alloc] init];
+    self.itemsService = [[GVItemsService alloc] init];
+    self.groups.delegate = self;
+    self.groups.dataSource = self;
+    //self.groupNames = @[@"Australia (AUD)", @"China (CNY)",
+    //  @"France (EUR)", @"Great Britain (GBP)", @"Japan (JPY)"];
+    [self.groupService queryUserJoinedGroupsWithBlock:^(NSMutableArray *groupsJoined, NSError *error) {
+        self.groupNames = groupsJoined;
+        [self.groups reloadAllComponents];
+    }];
 
 }
 
@@ -37,6 +49,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Picker Delegate methods
+
+- (NSInteger)numberOfComponentsInPickerView:
+(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component
+{
+    return self.groupNames.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component
+{
+    GVGroups* group = self.groupNames[row];
+    return group.name;
+    //return self.groupNames[row];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
+      inComponent:(NSInteger)component
+{
+    GVGroups* group = self.groupNames[row];
+    self.selectedGroup = group.name;
+}
 
 #pragma mark - Navigation
 
@@ -50,8 +91,18 @@
     }
 }
 
-
 - (IBAction)saveProduct:(id)sender {
+    GVItems* newItem = [[GVItems alloc] initWithName:self.productName.text cost:[self.price.text doubleValue] productID:@"034856543" sharedItem:@0 boughtBy:[PFUser currentUser][@"username"] group:self.selectedGroup];
+    [self.itemsService saveItemInBackgroundWithGVItemWithBlock:newItem block:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            self.price.text = @"";
+            self.productName.text = @"";
+        }
+        else {
+            // tell user something went wrong
+            NSLog(@"Error Saving Product... somewhere.");
+        }
+    }];
 }
 - (IBAction)PhotoButton:(id)sender{
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil

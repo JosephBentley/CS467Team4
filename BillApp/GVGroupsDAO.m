@@ -45,9 +45,9 @@ static NSString* BOUGHT_BY_COLUMN_NAME = @"boughtBy";
 {
     PFObject *newGroup = [PFObject objectWithClassName:GROUPS_TABLE_NAME];
     newGroup[@"group_nm"] = group;
-    
+//    NSNull* nsNull;
+//    newGroup[@"invites"] = nsNull;
     newGroup[@"members"] = @[ [PFUser currentUser] ];
-    
     
     PFACL *groupACL = [PFACL ACL];
     [groupACL setPublicReadAccess:NO];
@@ -282,8 +282,12 @@ static NSString* BOUGHT_BY_COLUMN_NAME = @"boughtBy";
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                if (![object[@"members"] containsObject:[PFUser currentUser]])
-                    [invitedToGroups addObject: object[@"group_nm"]];
+                for (PFObject* user in object[@"members"]) {
+                    PFObject* userInGroup = [user fetchIfNeeded];
+                    if ([userInGroup[@"username"] isEqualToString:[PFUser currentUser][@"username"]]) {
+                        [invitedToGroups addObject: object[@"group_nm"]];
+                    }
+                }
             }
             block(invitedToGroups, error);
         } else {
@@ -301,9 +305,11 @@ static NSString* BOUGHT_BY_COLUMN_NAME = @"boughtBy";
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                NSMutableArray* userArray;
-                for (PFObject *object2 in object[@"users"]){
-                    [userArray addObject:object2[@"username"]];
+                NSMutableArray* userArray = [[NSMutableArray alloc] init];
+                for (PFObject *object2 in object[@"members"]){
+                    PFUser* userInGroup = (PFUser*)[object2 fetchIfNeeded];
+                    [userArray addObject:userInGroup[@"username"]];
+                    //[userArray addObject:object2[@"username"]];
                 }
                 GVGroups* row = [[GVGroups alloc] initWithName:object[@"group_nm"] users:userArray];
                 [invitedToGroups addObject: row];

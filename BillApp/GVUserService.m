@@ -58,9 +58,9 @@
     }
 }
 
--(void)logoutCurrentUserWithError:(NSError **) error
+-(void)logoutCurrentUserWithBlock:(void (^) (BOOL succeeded)) block
 {
-	[self.sharedGVUserDAO logoutCurrentUser];
+	[self.sharedGVUserDAO logoutCurrentUserWithBlock:block];
 }
 
 -(void)resetPasswordWithEmailAddressWithBlock:(NSString*)email block:(void (^) (BOOL succeeded, NSError* error)) block

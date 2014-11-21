@@ -8,8 +8,11 @@
 
 #import "GroupTableViewController.h"
 #import "AccountViewController.h"
+#import "ReportTableViewController.h"
 
-@interface GroupTableViewController ()
+@interface GroupTableViewController (){
+
+}
 
 @end
 
@@ -27,6 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.itemsService = [[GVItemsService alloc] init];
     
     //self.navigationItem.rightBarButtonItem.enabled = NO;
     
@@ -47,30 +52,24 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    return self.group.users.count;
 }
 
 
-
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GVuser" forIndexPath:indexPath];
+    cell.textLabel.text = self.group.users[indexPath.row];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -110,15 +109,26 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"TOreport"])
+    {
+        ReportTableViewController *vc = [segue destinationViewController];
+        vc.title = self.selectedRow;
+        vc.items = self.userItems;
+
+    }
 }
-*/
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedRow = self.group.users[indexPath.row];
+    [self.itemsService queryGroupItemsWithUserNameWithBlock:self.selectedRow group:self.title block:^(NSMutableArray *userItemsInGroup, NSError *error) {
+        self.userItems = userItemsInGroup;
+        [self performSegueWithIdentifier:@"TOreport" sender:self];
+    }];
+}
 
 @end

@@ -13,6 +13,6 @@
 @property (weak, nonatomic)GVUserDAO* sharedGVUserDAO;
 -(void)createNewUserWithUserNameWithBlock:(NSString*)username password:(NSString*)password email:(NSString*)email block:(void (^) (BOOL succeeded, NSError* error)) block;
 -(void)logInWithUsernameInBackgroundWithBlock:(NSString*)username password:(NSString*)password block:(void (^) (NSError* error) ) block;
--(void)logoutCurrentUserWithError:(NSError **) error;
+-(void)logoutCurrentUserWithBlock:(void (^) (BOOL succeeded)) block;
 -(void)resetPasswordWithEmailAddressWithBlock:(NSString*)email block:(void (^) (BOOL succeeded, NSError* error)) block;
 @end

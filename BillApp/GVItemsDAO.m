@@ -52,7 +52,6 @@ static NSString* BOUGHT_BY_COLUMN_NAME = @"boughtBy";
     itemObject[@"cost_nb"] = nsCost;
     itemObject[@"productID_nm"] = item.productID;
     itemObject[@"shared_f"] = item.sharedFlag;
-    
     [self.sharedGVParseDAOUtilities saveObjectInBackgroundWithUserNameWithBlock:[PFUser currentUser][@"username"] group:item.group object:itemObject boughtByColumnName:BOUGHT_BY_COLUMN_NAME groupsColumnName:GROUPS_COLUMN_NAME block:block];
 }
 

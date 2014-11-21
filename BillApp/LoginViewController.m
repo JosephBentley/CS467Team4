@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "Parse/Parse.h"
 
 @interface LoginViewController (){
 }
@@ -25,8 +26,10 @@
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    self.password.text = @"";
+    
     //TODO Check if logged in
-    if(false)
+    if([PFUser currentUser] != nil)
         //logged in - seque to account screen
         [self performSegueWithIdentifier:@"TOaccount" sender:self];
 }
@@ -34,6 +37,7 @@
 {
     [super viewDidLoad];
     self.invalidText.hidden=true;
+    self.userService = [[GVUserService alloc] init];
     // Do any additional setup after loading the view.
 }
 
@@ -59,13 +63,17 @@
 
 - (IBAction)loginPressed:(id)sender {
     //TODO verify login info
+    NSLog(@"Inside loginPressed");
     
     //logged in - seque to account screen
-    if(true)
-        self.invalidText.hidden=false;
-    
-    else
-        [self performSegueWithIdentifier:@"TOaccount" sender:self];
+    [self.userService logInWithUsernameInBackgroundWithBlock:self.username.text password:self.password.text block:^(NSError *error) {
+        if(!error) {
+            [self performSegueWithIdentifier:@"TOaccount" sender:self];
+        }
+        else {
+            self.invalidText.hidden=false;
+        }
+    }];
     
 }
 @end

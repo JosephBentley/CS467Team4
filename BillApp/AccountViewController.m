@@ -8,8 +8,11 @@
 
 #import "AccountViewController.h"
 #import "DashboardTableViewController.h"
+#import "GroupInvitesTableViewController.h"
 
-@interface AccountViewController ()
+@interface AccountViewController (){
+    NSMutableArray*invitesgroup;
+}
 
 @end
 
@@ -28,6 +31,8 @@
 {
     [super viewDidLoad];
     self.emailAddress.text=self.email;
+    self.userService = [[GVUserService alloc] init];
+    self.groupService = [[GVGroupsService alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,10 +43,29 @@
 
 
 - (IBAction)createGroup:(id)sender {
+    [self.groupService createNewGroupWithGroupNameWithBlock:self.groupName.text block:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            self.groupName.text = @"";
+        }
+        else {
+            //couldn't create group for some reason
+        }
+    }];
 }
 
 - (IBAction)saveButton:(id)sender {
     self.enableReport= self.emailAddress.text;
+}
+- (IBAction)logoutButton:(id)sender {
+    NSLog(@"logoutButton Pressed");
+    [self.userService logoutCurrentUserWithBlock:^(BOOL succeeded) {
+        if (succeeded) {
+            [[self navigationController] popToRootViewControllerAnimated:YES];
+        }
+        else {
+            // not logged out... tell user something errored.
+        }
+    }];
 }
 - (IBAction)menu:(id)sender{
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
@@ -74,14 +98,24 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
+- (IBAction)invitesPressed:(id)sender {
+    [self.groupService queryInvitedToGroupsWithBlock:^(NSMutableArray *groupsJoined, NSError *error) {
+        invitesgroup =groupsJoined;
+        [self performSegueWithIdentifier:@"TOinvites" sender:self];
+    }];
+}
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"TOinvites"])
+    {
+        GroupInvitesTableViewController *vc = [segue destinationViewController];
+        vc.groups=invitesgroup;
+        vc.title = @"Group Invites";
+    }
 }
 
 

@@ -52,8 +52,8 @@
             [userACL setPublicWriteAccess:FALSE];
             
             user.ACL = userACL;
-            [user save];
-            block(succeeded, error);
+            [user saveInBackgroundWithBlock:block];
+            //block(succeeded, error);
         } else {
             NSString *errorString = [error userInfo][@"error"];
             NSLog(@"GVUserDAO: %@", errorString);
@@ -67,7 +67,7 @@
 {
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
         if (user) {
-            // user logged in.
+            
             block(error);
         } else {
             NSString* errorString = [error userInfo][@"error"];
@@ -77,12 +77,13 @@
     }];
 }
 
--(bool)logoutCurrentUser
+-(void)logoutCurrentUserWithBlock:(void (^)(BOOL succeeded)) block
 {
 	[PFUser logOut];
-	if (![PFUser currentUser])
-		return false;
-	return true;
+	if ([PFUser currentUser] == nil)
+		block(true);
+    else
+        block(false);
 }
 
 -(void)resetPasswordWithEmailAddressWithBlock:(NSString*)email block:(void (^) (BOOL succeeded, NSError* error)) block

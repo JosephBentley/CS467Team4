@@ -13,7 +13,7 @@
 + (id)sharedGVUserDAO;
 -(void)createNewUserWithUserNameWithBlock:(NSString*)username password:(NSString*)password email:(NSString*)email block:(void (^) (BOOL succeeded, NSError* error)) block;
 -(void)logInWithUsernameInBackgroundWithBlock:(NSString*)username password:(NSString*)password block:(void (^) (NSError* error) ) block;
--(bool)logoutCurrentUser;
+-(void)logoutCurrentUserWithBlock:(void (^)(BOOL succeeded)) block;
 -(void)resetPasswordWithEmailAddressWithBlock:(NSString*)email block:(void (^) (BOOL succeeded, NSError* error)) block;
 -(void)queryForUserWithUserNameWithBlock:(NSString*)username block:(void (^) (PFObject* object, NSError* error)) block;
 @end
