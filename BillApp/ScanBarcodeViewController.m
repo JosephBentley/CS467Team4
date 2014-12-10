@@ -10,7 +10,13 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ScanBarcodeViewController.h"
 #import "GVHttpCommunication.h"
-#import "BarcodeViewController.h"
+#import "ProductEntryViewController.h"
+
+
+bool canSegue = NO;
+bool canCollectMetaDeta = YES;
+int i = 0;
+
 @interface ScanBarcodeViewController () <AVCaptureMetadataOutputObjectsDelegate>
 {
     AVCaptureSession *_session;
@@ -36,7 +42,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    canCollectMetaDeta = YES;
+    canSegue = NO;
     //lock orientation
     //[self suportedInterfceOrientations];
     
@@ -85,67 +92,66 @@
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
-    CGRect highlightViewRect = CGRectZero;
-    AVMetadataMachineReadableCodeObject *barCodeObject;
-    NSString *detectionString = nil;
-    NSArray *barCodeTypes = @[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code,
-                              AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,
-                              AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode];
-    
-    for (AVMetadataObject *metadata in metadataObjects) {
-        for (NSString *type in barCodeTypes) {
-            if ([metadata.type isEqualToString:type])
+    NSLog(@"%d", i++);
+    if (canCollectMetaDeta) {
+        CGRect highlightViewRect = CGRectZero;
+        AVMetadataMachineReadableCodeObject *barCodeObject;
+        NSString *detectionString = nil;
+        NSArray *barCodeTypes = @[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code,
+                                  AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,
+                                  AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode];
+        
+        for (AVMetadataObject *metadata in metadataObjects) {
+            for (NSString *type in barCodeTypes) {
+                if ([metadata.type isEqualToString:type])
+                {
+                    barCodeObject = (AVMetadataMachineReadableCodeObject *)[_prevLayer transformedMetadataObjectForMetadataObject:(AVMetadataMachineReadableCodeObject *)metadata];
+                    highlightViewRect = barCodeObject.bounds;
+                    detectionString = [(AVMetadataMachineReadableCodeObject *)metadata stringValue];
+                    break;
+                }
+            }
+            
+            if (detectionString != nil)
             {
-                barCodeObject = (AVMetadataMachineReadableCodeObject *)[_prevLayer transformedMetadataObjectForMetadataObject:(AVMetadataMachineReadableCodeObject *)metadata];
-                highlightViewRect = barCodeObject.bounds;
-                detectionString = [(AVMetadataMachineReadableCodeObject *)metadata stringValue];
+                _label.text = detectionString;
+                canCollectMetaDeta = NO;
+                http = [[GVHttpCommunication alloc] init];
+                //NSString * upc = @"12000024528";
+                NSString * startURL =@"http://api.upcdatabase.org/json/0f27fbc0c4fb2925684dd1f7fbe87ecd/";
+                NSString  *urlWithUPC = [startURL stringByAppendingString:detectionString];
+                NSURL *url = [NSURL URLWithString:urlWithUPC];
+                [http retrieveURL:url successBlock:^(NSData *response) {
+                    NSError *error = nil;
+                    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error];
+                    
+                    if(!error) {
+                        ucpDescription = data[@"description"];
+                        NSLog(@"%@",ucpDescription);
+                        [self performSegueWithIdentifier:@"TOentry" sender:self];
+                    }
+                }];
+                
                 break;
             }
+            else
+                _label.text = @"(none)";
         }
-        
-        if (detectionString != nil)
-        {
-            _label.text = detectionString;
-            
-            
-            
-            http = [[GVHttpCommunication alloc] init];
-            //NSString * upc = @"12000024528";
-            NSString * startURL =@"http://api.upcdatabase.org/json/0f27fbc0c4fb2925684dd1f7fbe87ecd/";
-            NSString  *urlWithUPC = [startURL stringByAppendingString:detectionString];
-            NSURL *url = [NSURL URLWithString:urlWithUPC];
-            [http retrieveURL:url successBlock:^(NSData *response) {
-                NSError *error = nil;
-                NSDictionary *data = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error];
-                
-                if(!error) {
-                    ucpDescription = data[@"description"];
-                    NSLog(@"%@",ucpDescription);
-                    [self performSegueWithIdentifier:@"TObarcode" sender:self];
-                }
-            }];
-            
-            
-            
-            
-            break;
-        }
-        else
-            _label.text = @"(none)";
+        _highlightView.frame = highlightViewRect;
     }
-    
-    _highlightView.frame = highlightViewRect;
 }
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"TObarcode"])
+    if ([[segue identifier] isEqualToString:@"TOentry"])
     {
+        ProductEntryViewController *vc = [segue destinationViewController];
+        vc.productNameString = [[NSString alloc] initWithString:ucpDescription];
         
-        BarcodeViewController *vc = [segue destinationViewController];
-        vc.description=ucpDescription;
+        NSLog(@"Description in prepareForSegue: %@", ucpDescription);
     }
 }
 @end

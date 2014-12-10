@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GVGroupsService.h"
 
-@interface GroupInvitesTableViewController : UITableViewController
+@interface GroupInvitesTableViewController : UITableViewController <UIActionSheetDelegate>
 @property (strong, nonatomic)NSMutableArray* groups;
 @property (strong, nonatomic)GVGroupsService* groupService;
 @end

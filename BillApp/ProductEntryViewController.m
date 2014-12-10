@@ -40,7 +40,17 @@
         self.groupNames = groupsJoined;
         [self.groups reloadAllComponents];
     }];
-
+    
+    
+    //Round Save Button
+    _saveButton.layer.borderWidth = 1.0f;
+    _saveButton.layer.cornerRadius = 10;
+    _saveButton.layer.borderColor = [UIColor grayColor].CGColor;
+    
+    if (self.productNameString != nil) {
+        self.productName.text = self.productNameString;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,7 +70,14 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component
 {
-    return self.groupNames.count;
+    if(self.groupNames.count == 0){
+        _groups.userInteractionEnabled = NO;
+        return self.groupNames.count;
+    }
+    else{
+        _groups.userInteractionEnabled = YES;
+        return self.groupNames.count;
+    }
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView
@@ -92,18 +109,21 @@ numberOfRowsInComponent:(NSInteger)component
 }
 
 - (IBAction)saveProduct:(id)sender {
-    GVItems* newItem = [[GVItems alloc] initWithName:self.productName.text cost:[self.price.text doubleValue] productID:@"034856543" sharedItem:@0 boughtBy:[PFUser currentUser][@"username"] group:self.selectedGroup];
-    [self.itemsService saveItemInBackgroundWithGVItemWithBlock:newItem block:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            self.price.text = @"";
-            self.productName.text = @"";
-        }
-        else {
-            // tell user something went wrong
-            NSLog(@"Error Saving Product... somewhere.");
-        }
-    }];
+    if (![self.productName.text isEqualToString:@""] && ![self.price.text isEqualToString:@""]) {
+        GVItems* newItem = [[GVItems alloc] initWithName:self.productName.text cost:[self.price.text doubleValue] productID:@"034856543" sharedItem:@0 boughtBy:[PFUser currentUser][@"username"] group:self.selectedGroup];
+        [self.itemsService saveItemInBackgroundWithGVItemWithBlock:newItem block:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                self.price.text = @"";
+                self.productName.text = @"";
+            }
+            else {
+                // tell user something went wrong
+                NSLog(@"Error Saving Product... somewhere.");
+            }
+        }];
+    }
 }
+
 - (IBAction)PhotoButton:(id)sender{
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
@@ -119,7 +139,7 @@ numberOfRowsInComponent:(NSInteger)component
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Account Info",@"Dashboard" ,@"Bill List" ,@"Pending List",@"Shopping List",nil];
+                                                    otherButtonTitles:@"Account Info",@"Dashboard" ,@"Bill List",@"Shopping List",nil];
     actionSheet.tag = 200;
     
     [actionSheet showInView:self.view];
@@ -132,8 +152,6 @@ numberOfRowsInComponent:(NSInteger)component
             [self performSegueWithIdentifier:@"TOaccount" sender:self];
         if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Bill List"])
             [self performSegueWithIdentifier:@"TObill" sender:self];
-        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Pending List"])
-            [self performSegueWithIdentifier:@"TOpending" sender:self];
         if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Shopping List"])
             [self performSegueWithIdentifier:@"TOshopping" sender:self];
     }
@@ -142,9 +160,9 @@ numberOfRowsInComponent:(NSInteger)component
         if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Take Receipt Photo"])[self performSegueWithIdentifier:@"TOtakereceipt" sender:self];
         if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Scan Barcode"])[self performSegueWithIdentifier:@"TOscanbarcode" sender:self];
         if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Existing Receipt"])[self performSegueWithIdentifier:@"TOexistingreceipt" sender:self];
-
-    //self.dest=[actionSheet buttonTitleAtIndex:buttonIndex];
-    //[self performSegueWithIdentifier:@"productEntryTOcamera" sender:self];
+        
+        //self.dest=[actionSheet buttonTitleAtIndex:buttonIndex];
+        //[self performSegueWithIdentifier:@"productEntryTOcamera" sender:self];
     }
 }
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

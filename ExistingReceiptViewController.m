@@ -34,6 +34,8 @@ BOOL receiptSelected = NO;
     
     [self selectPhoto:(UIButton *)@"ExistingReceipt"];
     
+    self.scanReceiptLabel.enabled = false;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,6 +73,7 @@ BOOL receiptSelected = NO;
     self.imageView.image = selectedImage;
     [picker dismissViewControllerAnimated:YES completion:NULL];
     receiptSelected = YES;
+    self.scanReceiptLabel.enabled = true;
 }
 
 //this method is called when user cancels
@@ -107,6 +110,7 @@ BOOL receiptSelected = NO;
             //Stop your activity indicator or anything else with the GUI
             //Code here is run on the main thread
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            [activityView stopAnimating];
             [self performSegueWithIdentifier:@"TOtable" sender:self];
         });
         

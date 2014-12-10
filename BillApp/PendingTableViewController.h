@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PendingTableViewController : UITableViewController <UIActionSheetDelegate>
-
+@property (strong, nonatomic) NSDate * startDate;
+@property (strong, nonatomic) NSDate * endDate;
 @end

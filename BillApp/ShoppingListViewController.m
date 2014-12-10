@@ -7,7 +7,7 @@
 //
 
 #import "ShoppingListViewController.h"
-
+#import <Parse/Parse.h>
 @interface ShoppingListViewController ()
 
 @end
@@ -37,20 +37,28 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)cancelPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)savePressed:(id)sender {
+    PFObject *obj = [PFObject objectWithClassName:@"ShoppingList"];
+    obj[@"Item_nm"] = self.itemText.text;
+    obj[@"isChecked"]=[NSNumber numberWithBool:false];
+    obj[@"ACL"]=[PFUser currentUser].ACL;
+    [obj.ACL setPublicReadAccess:NO];
+    [obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 @end

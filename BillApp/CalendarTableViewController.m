@@ -62,7 +62,7 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Account Info",@"Dashboard",  @"Product Entry",@"Pending List",@"Shopping List",nil];
+                                                    otherButtonTitles:@"Account Info",@"Dashboard",  @"Product Entry",@"Shopping List",nil];
     actionSheet.tag = 100;
     
     [actionSheet showInView:self.view];
@@ -77,8 +77,6 @@
         [self performSegueWithIdentifier:@"TOaccount" sender:self];
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Product Entry"])
         [self performSegueWithIdentifier:@"TOentry" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Pending List"])
-        [self performSegueWithIdentifier:@"TOpending" sender:self];
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Shopping List"])
         [self performSegueWithIdentifier:@"TOshopping" sender:self];
 }

@@ -17,9 +17,9 @@
 -(void)acceptInviteWithGroupNameWithBlock:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block;
 -(void)joinGroupWithGroupNameWithBlock:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block;
 -(void)leaveGroupWithGroupNameWithBlock:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block;
+-(void)declineGroupJoinRequestFromUserWithBlock:(NSString*)username group:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block;
 -(void)acceptGroupJoinRequestFromUserWithBlock:(NSString*)username group:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block;
-//-(void)queryInvitedToGroupsWithGroupNameWithBlock:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block;
-//-(void)queryUserJoinedGroupsWithGroupNameWithBlock:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block;
 -(void)queryInvitedToGroupsWithBlock:(void (^) (NSMutableArray* groupsJoined, NSError* error)) block;
 -(void)queryUserJoinedGroupsWithBlock:(void (^) (NSMutableArray* groupsJoined, NSError* error)) block;
+-(void)queryPendingJoinRequestsWithGroupNameWithBlock:(NSString*)group block:(void (^) (NSMutableArray* object, NSError* error)) block;
 @end

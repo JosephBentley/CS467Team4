@@ -63,7 +63,7 @@ GVGroups *user;
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Account Info", @"Bill List", @"Product Entry",@"Pending List",@"Shopping List",nil];
+                                                    otherButtonTitles:@"Account Info", @"Bill List", @"Product Entry",@"Shopping List",nil];
     actionSheet.tag = 100;
     
     [actionSheet showInView:self.view];
@@ -78,8 +78,6 @@ GVGroups *user;
         [self performSegueWithIdentifier:@"TObill" sender:self];
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Product Entry"])
         [self performSegueWithIdentifier:@"TOentry" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Pending List"])
-        [self performSegueWithIdentifier:@"TOpending" sender:self];
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Shopping List"])
         [self performSegueWithIdentifier:@"TOshopping" sender:self];
 }

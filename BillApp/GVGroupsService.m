@@ -38,6 +38,11 @@
     [self.sharedGVGroupsDAO acceptInviteWithGroupNameWithBlock:group block:block];
 }
 
+-(void)declineGroupJoinRequestFromUserWithBlock:(NSString*)username group:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block
+{
+    [self.sharedGVGroupsDAO declineGroupJoinRequestFromUserWithBlock:username group:group block:block];
+}
+
 -(void)acceptGroupJoinRequestFromUserWithBlock:(NSString*)username group:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block
 {
     [self.sharedGVGroupsDAO acceptGroupJoinRequestFromUserWithBlock:username group:group block:block];
@@ -61,6 +66,11 @@
 -(void)queryUserJoinedGroupsWithBlock:(void (^) (NSMutableArray* groupsJoined, NSError* error)) block
 {
     [self.sharedGVGroupsDAO queryUserJoinedGroupsWithBlock:block];
+}
+
+-(void)queryPendingJoinRequestsWithGroupNameWithBlock:(NSString*)group block:(void (^) (NSMutableArray* object, NSError* error)) block
+{
+    [self.sharedGVGroupsDAO queryPendingJoinRequestsWithGroupNameWithBlock:group block:block];
 }
 
 @end

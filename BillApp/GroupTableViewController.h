@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "GVGroups.h"
 #import "GVItemsService.h"
+#import "GVGroupsService.h"
 
 @interface GroupTableViewController : UITableViewController
 @property (strong, nonatomic)GVGroups* group;
 @property (strong, nonatomic)GVItemsService* itemsService;
+@property (strong, nonatomic)GVGroupsService* groupsService;
 @property (strong, nonatomic)NSString* selectedRow;
 @property (strong, nonatomic)NSMutableArray* userItems;
 @end

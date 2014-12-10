@@ -1,18 +1,19 @@
 //
-//  PendingTableViewController.m
+//  GVAcceptInvitesTableViewController.m
 //  BillApp
 //
-//  Created by X Code User on 9/29/14.
+//  Created by X Code User on 11/20/14.
 //  Copyright (c) 2014 Team4. All rights reserved.
 //
 
-#import "PendingTableViewController.h"
+#import "GVAcceptInvitesTableViewController.h"
 
-@interface PendingTableViewController ()
-
+@interface GVAcceptInvitesTableViewController () {
+    NSString *selectedUser;
+}
 @end
 
-@implementation PendingTableViewController
+@implementation GVAcceptInvitesTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,7 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.groupService = [[GVGroupsService alloc] init];
+    self.title = @"Manage group join requests";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -44,63 +46,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return 1;
+    return self.invites.count;
 }
-- (IBAction)menu:(id)sender{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Account Info",@"Dashboard" ,@"Bill List" ,@"Product Entry",@"Shopping List",nil];
-    actionSheet.tag = 100;
-    
-    [actionSheet showInView:self.view];
-}
--(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    if (actionSheet.tag == 100) {
-        NSLog(@"From didDismissWithButtonIndex - Selected: %@", [actionSheet buttonTitleAtIndex:buttonIndex]);
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Dashboard"])
-        [self performSegueWithIdentifier:@"TOdashboard" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Account Info"])
-        [self performSegueWithIdentifier:@"TOaccount" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Product Entry"])
-        [self performSegueWithIdentifier:@"TOentry" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Bill List"])
-        [self performSegueWithIdentifier:@"TObill" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Shopping List"])
-        [self performSegueWithIdentifier:@"TOshopping" sender:self];
-    }
-//    //Selected a row
-//    else if (actionSheet.tag == 200) {
-//        //TODO - update db. accept the pending payment
-//        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Accept"]){
-//            
-//        }
-//        //TODO - update db. decline the pending payment
-//        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Decline"]){
-//            
-//        }
-//    }
-}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    //Name of member
-    cell.textLabel.text=@"Bill";
-    //Amount pending
-    cell.detailTextLabel.text= @"$30";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"acceptInvitesCell" forIndexPath:indexPath];
+    cell.textLabel.text = self.invites[indexPath.row];
     return cell;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
@@ -109,10 +70,42 @@
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"Accept",@"Decline",nil];
     actionSheet.tag = 200;
-    
+    selectedUser = self.invites[indexPath.row];
     [actionSheet showInView:self.view];
     
 }
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if (actionSheet.tag == 200) {
+        
+        //TODO - update db. accept the pending invite
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Accept"]){
+            [self.groupService acceptGroupJoinRequestFromUserWithBlock:selectedUser group:self.navigationItem.title block:^(BOOL succeeded, NSError *error) {
+                [self.invites removeObject:selectedUser];
+                [self.tableView reloadData];
+            }];
+        }
+        //TODO - update db. decline the pending invite
+        if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Decline"]){
+            [self.groupService declineGroupJoinRequestFromUserWithBlock:selectedUser group:self.navigationItem.title block:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    [self.invites removeObject:selectedUser];
+                    [self.tableView reloadData];
+                }
+            }];
+        }
+    }
+}
+
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    return cell;
+}
+*/
 
 /*
 // Override to support conditional editing of the table view.

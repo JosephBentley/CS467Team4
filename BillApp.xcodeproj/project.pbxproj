@@ -13,8 +13,10 @@
 		33220A421A16499B0066A1FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33220A411A16499B0066A1FF /* Parse.framework */; };
 		33220A441A1649A60066A1FF /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33220A431A1649A60066A1FF /* ParseFacebookUtils.framework */; };
 		33220A461A1649AF0066A1FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33220A451A1649AF0066A1FF /* Bolts.framework */; };
+		332B5F751A1FDC57005594C8 /* GVReceiptTableEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 332B5F741A1FDC57005594C8 /* GVReceiptTableEditViewController.m */; };
 		333DDFB319FAFB3C004BC65A /* ScanBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333DDFB219FAFB3C004BC65A /* ScanBarcodeViewController.m */; };
 		333DDFB519FAFD34004BC65A /* ScanBarCodes-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 333DDFB419FAFD33004BC65A /* ScanBarCodes-Info.plist */; };
+		3340C2531A2CD20B00CA6AF4 /* ShoppingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3340C2521A2CD20B00CA6AF4 /* ShoppingTableViewCell.m */; };
 		334D7B661A06BF8E003F10D7 /* Tesseract.mm in Sources */ = {isa = PBXBuildFile; fileRef = 334D7A331A06BF8D003F10D7 /* Tesseract.mm */; };
 		334D7B671A06BF8E003F10D7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 334D7A341A06BF8D003F10D7 /* LICENSE */; };
 		334D7B681A06BF8E003F10D7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 334D7A351A06BF8D003F10D7 /* README.md */; };
@@ -88,8 +90,12 @@
 		338E737819DEDCD500DF6D78 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E737719DEDCD500DF6D78 /* LoginViewController.m */; };
 		338E737B19DEDCE300DF6D78 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338E737A19DEDCE300DF6D78 /* CreateAccountViewController.m */; };
 		339A503019D30C4A00FE1513 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339A502F19D30C4A00FE1513 /* Storyboard.storyboard */; };
+		339FED301A36399100017C9C /* SelectGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339FED2F1A36399100017C9C /* SelectGroupViewController.m */; };
 		33B8E68319FEDDAD007DFFF7 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B8E68219FEDDAD007DFFF7 /* menu.png */; };
 		33C202D91A1D2E200036A337 /* GroupInvitesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C202D81A1D2E200036A337 /* GroupInvitesTableViewController.m */; };
+		33C753261A1E70CC0016A36F /* UIGroupInviteUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C753251A1E70CC0016A36F /* UIGroupInviteUserViewController.m */; };
+		33C753291A1E82CF0016A36F /* GVAcceptInvitesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C753281A1E82CF0016A36F /* GVAcceptInvitesTableViewController.m */; };
+		33D2EC441A35F9CE00849934 /* PendingSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D2EC431A35F9CE00849934 /* PendingSearchViewController.m */; };
 		33D311D719FEBAED0091793D /* TakeReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D311D619FEBAED0091793D /* TakeReceiptViewController.m */; };
 		33F3C1FD19E3061600729A72 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3C1FC19E3061600729A72 /* MenuViewController.m */; };
 		33FE895D19FC2DE500BDFA26 /* ExistingReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FE895C19FC2DE500BDFA26 /* ExistingReceiptViewController.m */; };
@@ -113,9 +119,13 @@
 		33220A411A16499B0066A1FF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		33220A431A1649A60066A1FF /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		33220A451A1649AF0066A1FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		332B5F731A1FDC57005594C8 /* GVReceiptTableEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GVReceiptTableEditViewController.h; path = ../GVReceiptTableEditViewController.h; sourceTree = "<group>"; };
+		332B5F741A1FDC57005594C8 /* GVReceiptTableEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GVReceiptTableEditViewController.m; path = ../GVReceiptTableEditViewController.m; sourceTree = "<group>"; };
 		333DDFB119FAFB3C004BC65A /* ScanBarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanBarcodeViewController.h; sourceTree = "<group>"; };
 		333DDFB219FAFB3C004BC65A /* ScanBarcodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanBarcodeViewController.m; sourceTree = "<group>"; };
 		333DDFB419FAFD33004BC65A /* ScanBarCodes-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ScanBarCodes-Info.plist"; sourceTree = "<group>"; };
+		3340C2511A2CD20B00CA6AF4 /* ShoppingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingTableViewCell.h; sourceTree = "<group>"; };
+		3340C2521A2CD20B00CA6AF4 /* ShoppingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingTableViewCell.m; sourceTree = "<group>"; };
 		334D7A321A06BF8D003F10D7 /* Tesseract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tesseract.h; sourceTree = "<group>"; };
 		334D7A331A06BF8D003F10D7 /* Tesseract.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Tesseract.mm; sourceTree = "<group>"; };
 		334D7A341A06BF8D003F10D7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -517,9 +527,17 @@
 		338E737919DEDCE300DF6D78 /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
 		338E737A19DEDCE300DF6D78 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
 		339A502F19D30C4A00FE1513 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		339FED2E1A36399100017C9C /* SelectGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectGroupViewController.h; path = ../SelectGroupViewController.h; sourceTree = "<group>"; };
+		339FED2F1A36399100017C9C /* SelectGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectGroupViewController.m; path = ../SelectGroupViewController.m; sourceTree = "<group>"; };
 		33B8E68219FEDDAD007DFFF7 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
-		33C202D71A1D2E200036A337 /* GroupInvitesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInvitesTableViewController.h; sourceTree = "<group>"; };
-		33C202D81A1D2E200036A337 /* GroupInvitesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupInvitesTableViewController.m; sourceTree = "<group>"; };
+		33C202D71A1D2E200036A337 /* GroupInvitesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupInvitesTableViewController.h; path = ../GroupInvitesTableViewController.h; sourceTree = "<group>"; };
+		33C202D81A1D2E200036A337 /* GroupInvitesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupInvitesTableViewController.m; path = ../GroupInvitesTableViewController.m; sourceTree = "<group>"; };
+		33C753241A1E70CC0016A36F /* UIGroupInviteUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIGroupInviteUserViewController.h; sourceTree = "<group>"; };
+		33C753251A1E70CC0016A36F /* UIGroupInviteUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIGroupInviteUserViewController.m; sourceTree = "<group>"; };
+		33C753271A1E82CF0016A36F /* GVAcceptInvitesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVAcceptInvitesTableViewController.h; sourceTree = "<group>"; };
+		33C753281A1E82CF0016A36F /* GVAcceptInvitesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVAcceptInvitesTableViewController.m; sourceTree = "<group>"; };
+		33D2EC421A35F9CE00849934 /* PendingSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingSearchViewController.h; sourceTree = "<group>"; };
+		33D2EC431A35F9CE00849934 /* PendingSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSearchViewController.m; sourceTree = "<group>"; };
 		33D311D519FEBAED0091793D /* TakeReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TakeReceiptViewController.h; path = ../TakeReceiptViewController.h; sourceTree = "<group>"; };
 		33D311D619FEBAED0091793D /* TakeReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TakeReceiptViewController.m; path = ../TakeReceiptViewController.m; sourceTree = "<group>"; };
 		33F3C1FB19E3061600729A72 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
@@ -570,6 +588,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33340D551A36661A0075CE33 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
 		334D7A301A06BF8D003F10D7 /* tesseract-ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -1012,8 +1037,6 @@
 		3385293419CA1BB70074D140 = {
 			isa = PBXGroup;
 			children = (
-				33C202D71A1D2E200036A337 /* GroupInvitesTableViewController.h */,
-				33C202D81A1D2E200036A337 /* GroupInvitesTableViewController.m */,
 				3385294619CA1BB70074D140 /* BillApp */,
 				3385296819CA1BB70074D140 /* BillAppTests */,
 				3385293F19CA1BB70074D140 /* Frameworks */,
@@ -1067,11 +1090,16 @@
 				3385295019CA1BB70074D140 /* AppDelegate.m */,
 				3385295B19CA1BB70074D140 /* Images.xcassets */,
 				3385294719CA1BB70074D140 /* Supporting Files */,
-				331DE83719D0937100B1E828 /* CalendarTableViewController.h */,
+				33340D551A36661A0075CE33 /* Dashboard */,
 				331DE83819D0937100B1E828 /* CalendarTableViewController.m */,
+				331DE83719D0937100B1E828 /* CalendarTableViewController.h */,
 				33D311D519FEBAED0091793D /* TakeReceiptViewController.h */,
 				33D311D619FEBAED0091793D /* TakeReceiptViewController.m */,
 				339A502F19D30C4A00FE1513 /* Storyboard.storyboard */,
+				3340C2511A2CD20B00CA6AF4 /* ShoppingTableViewCell.h */,
+				3340C2521A2CD20B00CA6AF4 /* ShoppingTableViewCell.m */,
+				339FED2E1A36399100017C9C /* SelectGroupViewController.h */,
+				339FED2F1A36399100017C9C /* SelectGroupViewController.m */,
 				33B8E68219FEDDAD007DFFF7 /* menu.png */,
 				333DDFB419FAFD33004BC65A /* ScanBarCodes-Info.plist */,
 				333DDFB119FAFB3C004BC65A /* ScanBarcodeViewController.h */,
@@ -1088,6 +1116,8 @@
 				338C630419D9E369003D113C /* BarcodeViewController.m */,
 				338C630019D9E34F003D113C /* ReceiptTableViewController.h */,
 				338C630119D9E34F003D113C /* ReceiptTableViewController.m */,
+				332B5F731A1FDC57005594C8 /* GVReceiptTableEditViewController.h */,
+				332B5F741A1FDC57005594C8 /* GVReceiptTableEditViewController.m */,
 				33509FDB19D9A482006BECBF /* CameraViewController.h */,
 				33509FDC19D9A482006BECBF /* CameraViewController.m */,
 				33509FD819D9A46F006BECBF /* PhotoViewController.h */,
@@ -1098,6 +1128,8 @@
 				33509FD019D9A42A006BECBF /* PendingTableView.m */,
 				33509FD219D9A438006BECBF /* PendingTableViewController.h */,
 				33509FD319D9A438006BECBF /* PendingTableViewController.m */,
+				33D2EC421A35F9CE00849934 /* PendingSearchViewController.h */,
+				33D2EC431A35F9CE00849934 /* PendingSearchViewController.m */,
 				33509FC919D9A3E4006BECBF /* ShoppingListTableViewController.h */,
 				33509FCA19D9A3E4006BECBF /* ShoppingListTableViewController.m */,
 				33509FCC19D9A3F8006BECBF /* ShoppingListTableView.h */,
@@ -1114,6 +1146,12 @@
 				33509FB819D9A2B7006BECBF /* GroupTableView.m */,
 				33509FBA19D9A2C7006BECBF /* GroupTableViewController.h */,
 				33509FBB19D9A2C7006BECBF /* GroupTableViewController.m */,
+				33C753241A1E70CC0016A36F /* UIGroupInviteUserViewController.h */,
+				33C753251A1E70CC0016A36F /* UIGroupInviteUserViewController.m */,
+				33C753271A1E82CF0016A36F /* GVAcceptInvitesTableViewController.h */,
+				33C753281A1E82CF0016A36F /* GVAcceptInvitesTableViewController.m */,
+				33C202D71A1D2E200036A337 /* GroupInvitesTableViewController.h */,
+				33C202D81A1D2E200036A337 /* GroupInvitesTableViewController.m */,
 				33509FB419D9A285006BECBF /* DashboardTableView.h */,
 				33509FB519D9A285006BECBF /* DashboardTableView.m */,
 				33509FB119D9A24A006BECBF /* DashboardTableViewController.h */,
@@ -1264,6 +1302,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				332B5F751A1FDC57005594C8 /* GVReceiptTableEditViewController.m in Sources */,
+				3340C2531A2CD20B00CA6AF4 /* ShoppingTableViewCell.m in Sources */,
 				3383714B1A14101A008ABDB1 /* AppDelegate.m in Sources */,
 				33509FDD19D9A482006BECBF /* CameraViewController.m in Sources */,
 				338371251A14092C008ABDB1 /* GVGroups.m in Sources */,
@@ -1283,7 +1323,10 @@
 				33509FCE19D9A3F8006BECBF /* ShoppingListTableView.m in Sources */,
 				338371141A1408EF008ABDB1 /* GVPayments.m in Sources */,
 				338C630219D9E34F003D113C /* ReceiptTableViewController.m in Sources */,
+				33C753261A1E70CC0016A36F /* UIGroupInviteUserViewController.m in Sources */,
+				339FED301A36399100017C9C /* SelectGroupViewController.m in Sources */,
 				33509FC519D9A33D006BECBF /* PaymentViewController.m in Sources */,
+				33C753291A1E82CF0016A36F /* GVAcceptInvitesTableViewController.m in Sources */,
 				33509FD719D9A45B006BECBF /* ProductEntryViewController.m in Sources */,
 				33509FB919D9A2B7006BECBF /* GroupTableView.m in Sources */,
 				338371201A14091F008ABDB1 /* GVItemsService.m in Sources */,
@@ -1299,6 +1342,7 @@
 				331DE83919D0937100B1E828 /* CalendarTableViewController.m in Sources */,
 				33509FE019D9AC4D006BECBF /* AccountViewController.m in Sources */,
 				33509FD119D9A42A006BECBF /* PendingTableView.m in Sources */,
+				33D2EC441A35F9CE00849934 /* PendingSearchViewController.m in Sources */,
 				33509FB619D9A285006BECBF /* DashboardTableView.m in Sources */,
 				33509FDA19D9A46F006BECBF /* PhotoViewController.m in Sources */,
 				333DDFB319FAFB3C004BC65A /* ScanBarcodeViewController.m in Sources */,

@@ -39,6 +39,16 @@
     self.invalidText.hidden=true;
     self.userService = [[GVUserService alloc] init];
     // Do any additional setup after loading the view.
+    
+    //Round Login Button
+    _loginButton.layer.borderWidth = 1.0f;
+    _loginButton.layer.cornerRadius = 5;
+    _loginButton.layer.borderColor = [UIColor grayColor].CGColor;
+    
+    //Round createAcc Button
+    _createAccButton.layer.borderWidth = 1.0f;
+    _createAccButton.layer.cornerRadius = 5;
+    _createAccButton.layer.borderColor = [UIColor grayColor].CGColor;
 }
 
 - (void)didReceiveMemoryWarning

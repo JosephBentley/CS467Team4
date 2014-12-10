@@ -44,7 +44,37 @@ static NSString* BOUGHT_BY_COLUMN_NAME = @"boughtBy";
 
 #pragma mark Parse Methods
 
+//-(void)saveItemInBackgroundWithGVItemWithBlock:(GVItems*)item block:(void (^) (BOOL succeeded, NSError* error) )block
+//{
+//    NSNumber* nsCost = [[NSNumber alloc] initWithDouble:item.cost];
+//    PFObject *itemObject = [PFObject objectWithClassName:ITEMS_TABLE_NAME];
+//    itemObject[@"item_nm"] = item.name;
+//    itemObject[@"cost_nb"] = nsCost;
+//    itemObject[@"productID_nm"] = item.productID;
+//    itemObject[@"shared_f"] = item.sharedFlag;
+//    [self.sharedGVParseDAOUtilities saveObjectInBackgroundWithUserNameWithBlock:[PFUser currentUser][@"username"] group:item.group object:itemObject boughtByColumnName:BOUGHT_BY_COLUMN_NAME groupsColumnName:GROUPS_COLUMN_NAME block:block];
+//}
+
 -(void)saveItemInBackgroundWithGVItemWithBlock:(GVItems*)item block:(void (^) (BOOL succeeded, NSError* error) )block
+{
+    PFObject* itemObject = [self convertGVItemToPFObjectWithGVItem:item];
+    [self.sharedGVParseDAOUtilities saveObjectInBackgroundWithUserNameWithBlock:[PFUser currentUser][@"username"] group:item.group object:itemObject boughtByColumnName:BOUGHT_BY_COLUMN_NAME groupsColumnName:GROUPS_COLUMN_NAME block:block];
+}
+
+-(void)saveItemsInBackGroundWithArrayOfGVItemsWithBlock:(NSMutableArray*)items block:(void (^) (BOOL succeeded, NSError* error)) block
+{
+    NSMutableArray* parseItemObjects = [[NSMutableArray alloc] init];
+    for (GVItems* item in items) {
+        PFObject* object = [self convertGVItemToPFObjectWithGVItem:item];
+        [parseItemObjects addObject:object];
+    }
+    NSArray* array = [[NSArray alloc] initWithArray:parseItemObjects];
+    [PFObject saveAllInBackground:array block:^(BOOL succeeded, NSError *error) {
+        block(succeeded, error);
+    }];
+}
+
+-(PFObject*)convertGVItemToPFObjectWithGVItem:(GVItems*)item
 {
     NSNumber* nsCost = [[NSNumber alloc] initWithDouble:item.cost];
     PFObject *itemObject = [PFObject objectWithClassName:ITEMS_TABLE_NAME];
@@ -52,9 +82,8 @@ static NSString* BOUGHT_BY_COLUMN_NAME = @"boughtBy";
     itemObject[@"cost_nb"] = nsCost;
     itemObject[@"productID_nm"] = item.productID;
     itemObject[@"shared_f"] = item.sharedFlag;
-    [self.sharedGVParseDAOUtilities saveObjectInBackgroundWithUserNameWithBlock:[PFUser currentUser][@"username"] group:item.group object:itemObject boughtByColumnName:BOUGHT_BY_COLUMN_NAME groupsColumnName:GROUPS_COLUMN_NAME block:block];
+    return itemObject;
 }
-
 
 /*
  Get all user items.

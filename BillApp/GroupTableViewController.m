@@ -9,6 +9,9 @@
 #import "GroupTableViewController.h"
 #import "AccountViewController.h"
 #import "ReportTableViewController.h"
+#import "UIGroupInviteUserViewController.h"
+#import "GVAcceptInvitesTableViewController.h"
+#import "PendingSearchViewController.h"
 
 @interface GroupTableViewController (){
 
@@ -32,6 +35,23 @@
     [super viewDidLoad];
     
     self.itemsService = [[GVItemsService alloc] init];
+    self.groupsService = [[GVGroupsService alloc] init];
+    
+    UIBarButtonItem *inviteButton = [[UIBarButtonItem alloc]
+                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                   target:self
+                                   action:@selector(inviteToGroupButtonPressed:)];
+    UIBarButtonItem *acceptInvites = [[UIBarButtonItem alloc]
+                                     initWithBarButtonSystemItem:UIBarButtonSystemItemReply
+                                     target:self
+                                     action:@selector(acceptInvitesButtonPressed:)];
+    UIBarButtonItem *paymentsButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+                                      target:self
+                                      action:@selector(paymentsButtonpressed:)];
+    self.navigationItem.rightBarButtonItems = @[paymentsButton,acceptInvites, inviteButton];
+    //self.navigationItem.rightBarButtonItem = inviteButton;
+    
     
     //self.navigationItem.rightBarButtonItem.enabled = NO;
     
@@ -40,6 +60,21 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+-(void)inviteToGroupButtonPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"TOinviteUser" sender:self];
+}
+
+-(void)acceptInvitesButtonPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"TOacceptInvites" sender:self];
+}
+-(void)paymentsButtonpressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"TOdoubleDate" sender:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -122,6 +157,23 @@
         vc.items = self.userItems;
 
     }
+    if ([[segue identifier] isEqualToString:@"TOinviteUser"]){
+        UIGroupInviteUserViewController* vc = [segue destinationViewController];
+        vc.title = self.title;
+    }
+    if ([[segue identifier] isEqualToString:@"TOacceptInvites"]){
+        GVAcceptInvitesTableViewController* vc = [segue destinationViewController];
+        vc.title = self.title;
+        [self.groupsService queryPendingJoinRequestsWithGroupNameWithBlock:self.title block:^(NSMutableArray *object, NSError *error) {
+            vc.invites = object;
+            [vc.tableView reloadData];
+        }];
+    }
+    if ([[segue identifier] isEqualToString:@"TOdoubleDate"]){
+        PendingSearchViewController* vc = [segue destinationViewController];
+        vc.title = self.title;
+    }
+    
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedRow = self.group.users[indexPath.row];

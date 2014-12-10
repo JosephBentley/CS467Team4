@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface ShoppingListTableViewController : UITableViewController <UIActionSheetDelegate>
-
+@interface ShoppingListTableViewController : PFQueryTableViewController <UIActionSheetDelegate>
+@property PFObject *object;
+- (IBAction)addPressed:(id)sender;
+@property(nonatomic, getter=isEditing) BOOL editing;
 @end

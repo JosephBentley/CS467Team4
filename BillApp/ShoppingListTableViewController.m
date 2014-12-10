@@ -7,7 +7,7 @@
 //
 
 #import "ShoppingListTableViewController.h"
-
+#import "ShoppingTableViewCell.h"
 @interface ShoppingListTableViewController ()
 
 @end
@@ -18,20 +18,33 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        // customizing the table to be displayed
+        // set the class to query on
+        self.parseClassName = @"ShoppingList";
+        
+        
+        // enable the builtin pull-to-refresh-feature
+        self.pullToRefreshEnabled = YES;
+        
+        // enable pagination
+        self.paginationEnabled = YES;
+        
+        // the number of objects per page.
+        self.objectsPerPage = 10;
     }
     return self;
 }
-
+-(void) viewDidAppear:(BOOL)animated{
+    [self loadObjects];
+    [self.tableView reloadData];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    _editing = false;
+    [self loadObjects];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,28 +52,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (PFQuery *) queryForTable
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
+    PFQuery *query = [PFQuery queryWithClassName:@"ShoppingList"];
+    if([self.objects count] == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    [query orderByDescending:@"createAt"];
+    return query;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
-}
 - (IBAction)menu:(id)sender{
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Account Info",@"Dashboard", @"Bill List", @"Product Entry",@"Pending List",nil];
+                                                    otherButtonTitles:@"Account Info",@"Dashboard", @"Bill List", @"Product Entry",nil];
     actionSheet.tag = 100;
     
     [actionSheet showInView:self.view];
@@ -75,69 +82,87 @@
         [self performSegueWithIdentifier:@"TObill" sender:self];
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Product Entry"])
         [self performSegueWithIdentifier:@"TOentry" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Pending List"])
-        [self performSegueWithIdentifier:@"TOpending" sender:self];
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Dashboard"])
         [self performSegueWithIdentifier:@"TOdashboard" sender:self];
 }
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"ShoppingCell";
+    ShoppingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
+    NSString *item = object[@"Item_nm"];
+    cell.textLabel.text=item;
+    BOOL ischecked = [object[@"isChecked"] boolValue];
+    if(ischecked)
+        cell.accessoryType =UITableViewCellAccessoryCheckmark;
+    else
+        cell.accessoryType =UITableViewCellAccessoryNone;
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated { //Implement this method
+    [super setEditing:editing animated:animated];
+    [self.tableView setEditing:editing animated:animated];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        PFQuery *query = [PFQuery queryWithClassName:@"ShoppingList"];
+        [query selectKeys:@[@"Item_nm"]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            for (id object in objects) {
+                
+                NSLog(@"%@", object[@"Item_nm"]);
+                if([object[@"Item_nm"] isEqualToString:cell.textLabel.text]){
+                    [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        [self loadObjects];
+                        [self.tableView reloadData];
+                    }];
+                }
+                
+            }
+            
+        }];
+        
+        
+        
+    }
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
+- (void) refreshTableData{
+    [self.tableView reloadData];
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"ShoppingList"];
+    [query selectKeys:@[@"Item_nm"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        for (id object in objects) {
+            if([object[@"Item_nm"] isEqualToString:cell.textLabel.text]){
+                if(cell.accessoryType ==UITableViewCellAccessoryCheckmark){
+                    cell.accessoryType =UITableViewCellAccessoryNone;
+                    object[@"isChecked"]= [NSNumber numberWithBool:false];
+                }
+                else{
+                    cell.accessoryType =UITableViewCellAccessoryCheckmark;
+                    object[@"isChecked"]= [NSNumber numberWithBool:true];
+                }
+                [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                }];
+            }
+            
+        }
+        
+    }];
 }
-*/
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)addPressed:(id)sender {
+    [self performSegueWithIdentifier:@"toView" sender:self];
 }
-*/
-
 @end

@@ -33,6 +33,21 @@
     self.emailAddress.text=self.email;
     self.userService = [[GVUserService alloc] init];
     self.groupService = [[GVGroupsService alloc] init];
+    
+    //Round _logoutButton Button
+    _logoutButton.layer.borderWidth = 1.0f;
+    _logoutButton.layer.cornerRadius = 5;
+    _logoutButton.layer.borderColor = [UIColor grayColor].CGColor;
+    
+    //Round _createButton Button
+    _createButton.layer.borderWidth = 1.0f;
+    _createButton.layer.cornerRadius = 5;
+    _createButton.layer.borderColor = [UIColor grayColor].CGColor;
+    
+    //Round _manageButton Button
+    _manageButton.layer.borderWidth = 1.0f;
+    _manageButton.layer.cornerRadius = 5;
+    _manageButton.layer.borderColor = [UIColor grayColor].CGColor;
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,7 +87,7 @@
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Dashboard", @"Bill List", @"Product Entry",@"Pending List",@"Shopping List",nil];
+                                                    otherButtonTitles:@"Dashboard", @"Bill List", @"Product Entry",@"Shopping List",nil];
     actionSheet.tag = 100;
     
     [actionSheet showInView:self.view];
@@ -90,8 +105,6 @@
         [self performSegueWithIdentifier:@"TObill" sender:self];
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Product Entry"])
         [self performSegueWithIdentifier:@"TOentry" sender:self];
-    if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Pending List"])
-        [self performSegueWithIdentifier:@"TOpending" sender:self];
     if([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual:@"Shopping List"])
         [self performSegueWithIdentifier:@"TOshopping" sender:self];
 }

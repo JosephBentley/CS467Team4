@@ -44,22 +44,11 @@
 {
     [self.sharedGVItemsDAO queryAllUserItemsWithBlock:^(NSMutableArray* items, NSError* error) {
         if (!error) {
-            // business logic checks on items; Is the list valid? Contain data we actually want?
             
-            // if(business logic checks out)
-            //      block(items, error); // calls block that will contain Controller code to update tables / view stuff and buttons, etc.
-            // else {
-            //      //business logic does not check out -- create custom error
-            //      block(items, customError);
-            // }
-            for (GVItems* userItem in items){
-                NSLog(@"Business Logic of GVItems: %@", userItem.name);
-            }
             block(items, error);
         }
         else {
-            // something went wrong! -- network level error
-            //      block(items, error);
+            
         }
     }];
 }

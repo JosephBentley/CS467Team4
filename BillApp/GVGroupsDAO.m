@@ -103,6 +103,7 @@ static NSString* BOUGHT_BY_COLUMN_NAME = @"boughtBy";
     }];
 }
 
+
 -(void)declineInviteWithGroupNameWithBlock:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block
 {
     [self queryForGroupInvitesWithGroupNameWithBlock:group block:^(PFObject *object, NSError *error) {
@@ -140,6 +141,47 @@ static NSString* BOUGHT_BY_COLUMN_NAME = @"boughtBy";
             block(FALSE, error);
         }
 	}];
+}
+
+-(void)declineGroupJoinRequestFromUserWithBlock:(NSString*)username group:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block
+{
+    [self.sharedGVUserDAO queryForUserWithUserNameWithBlock:username block:^(PFObject* object, NSError* error) {
+        if (!error) {
+            //PFUser* invitedUser = [[PFUser alloc] initWithClassName:object[@"objectId"]];
+            PFUser* invitedUser = (PFUser*)object;
+            [self queryForGroupInvitesWithGroupNameWithBlock:group block:^(PFObject *object2, NSError *error) {
+                if (!error) {
+                    PFACL* invitesACL = object2[@"ACL"];
+                    [invitesACL setReadAccess:NO forUser:invitedUser];
+                    [invitesACL setWriteAccess:NO forUser:invitedUser];
+                    
+                    int i = 0;
+                    int locationToRemove = -1;
+                    for (PFObject* user in object[@"members"]) {
+                        PFObject* userInGroup = [user fetchIfNeeded];
+                        if ([userInGroup[@"username"] isEqualToString:invitedUser[@"username"]]) {
+                            locationToRemove = i;
+                        }
+                        i++;
+                    }
+                    if (locationToRemove != -1) {
+                        [object[@"members"] removeObjectAtIndex:locationToRemove];
+                    }
+                    
+                    [object saveInBackgroundWithBlock:block];
+                    //block(TRUE, error);
+                }
+                else {
+                    NSLog(@"QueryForGroupInvitesWithGroupNameWithBlock failed.\n Group Searched: %@", group);
+                    block(FALSE, error);
+                }
+            }];
+        }
+        else {
+            NSLog(@"queryForUserWithUserNameWithBlock failed");
+            block(FALSE, error);
+        }
+    }];
 }
 
 -(void)acceptGroupJoinRequestFromUserWithBlock:(NSString*)username group:(NSString*)group block:(void (^) (BOOL succeeded, NSError* error)) block
@@ -282,11 +324,15 @@ static NSString* BOUGHT_BY_COLUMN_NAME = @"boughtBy";
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
+                bool inGroup = false;
                 for (PFObject* user in object[@"members"]) {
                     PFObject* userInGroup = [user fetchIfNeeded];
                     if ([userInGroup[@"username"] isEqualToString:[PFUser currentUser][@"username"]]) {
-                        [invitedToGroups addObject: object[@"group_nm"]];
+                        inGroup = true;
                     }
+                }
+                if (!inGroup) {
+                    [invitedToGroups addObject: object[@"group_nm"]];
                 }
             }
             block(invitedToGroups, error);
@@ -335,6 +381,31 @@ static NSString* BOUGHT_BY_COLUMN_NAME = @"boughtBy";
     PFQuery *query = [PFQuery queryWithClassName:GROUP_INVITES_TABLE_NAME];
     [query whereKey:@"group_nm" equalTo:group];
     [query getFirstObjectInBackgroundWithBlock:block];
+}
+
+-(void)queryPendingJoinRequestsWithGroupNameWithBlock:(NSString*)group block:(void (^) (NSMutableArray* object, NSError* error)) block
+{
+    [self queryForGroupWithGroupNameWithBlock:group block:^(PFObject *object, NSError *error) {
+        NSLog(@"Group achieved");
+        [self queryForGroupInvitesWithGroupNameWithBlock:group block:^(PFObject *object2, NSError *error) {
+            NSLog(@"Group Invites achieved.");
+            NSMutableSet* usersInGroup = [[NSMutableSet alloc] init];
+            NSMutableSet* usersInvitedToGroup = [[NSMutableSet alloc] init];
+            NSString* username;
+            for (PFObject* members in object[@"members"]) {
+                username = [members fetchIfNeeded][@"username"];
+                [usersInGroup addObject:username];
+            }
+            for (PFObject* members in object2[@"members"]) {
+                username = [members fetchIfNeeded][@"username"];
+                [usersInvitedToGroup addObject:username];
+            }
+            [usersInvitedToGroup minusSet:usersInGroup];
+            NSMutableArray* array = [NSMutableArray arrayWithArray:[usersInvitedToGroup allObjects]];
+            NSLog(@"%@", array.description);
+            block(array, error);
+        }];
+    }];
 }
 
 @end

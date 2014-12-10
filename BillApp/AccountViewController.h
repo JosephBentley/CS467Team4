@@ -31,4 +31,9 @@
 @property (strong, nonatomic)GVGroupsService* groupService;
 - (IBAction)invitesPressed:(id)sender;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (weak, nonatomic) IBOutlet UIButton *createButton;
+@property (weak, nonatomic) IBOutlet UIButton *manageButton;
+
 @end

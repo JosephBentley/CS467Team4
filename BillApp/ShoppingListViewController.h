@@ -11,5 +11,5 @@
 @interface ShoppingListViewController : UIViewController 
 - (IBAction)cancelPressed:(id)sender;
 - (IBAction)savePressed:(id)sender;
-
+@property (weak, nonatomic) IBOutlet UITextField *itemText;
 @end

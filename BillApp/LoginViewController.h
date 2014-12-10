@@ -16,4 +16,7 @@
 @property (strong, nonatomic) GVUserService* userService;
 - (IBAction)loginPressed:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *createAccButton;
+
 @end
